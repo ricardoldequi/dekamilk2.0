@@ -1,0 +1,146 @@
+DROP DATABASE DeKAmilk
+GO
+
+CREATE DATABASE DeKAmilk
+GO
+
+USE DeKAmilk
+GO
+
+CREATE TABLE Cliente (
+	ID_Cliente INT NOT NULL IDENTITY(1,1),
+	Nome NVARCHAR(60) NOT NULL,
+	CPF NVARCHAR(14) NOT NULL UNIQUE DEFAULT '000.000.000-00',
+	CEP NVARCHAR(9),
+	CNPJ NVARCHAR(14),
+	Endereco NVARCHAR(150) NULL,
+	Cidade NVARCHAR(70) NULL,
+	Bairro NVARCHAR(70),
+	UF NVARCHAR(2),
+	Telefone NVARCHAR(15),
+	Email NVARCHAR(70),
+	CONSTRAINT PK_Cliente PRIMARY KEY (ID_Cliente)
+	);
+GO
+
+CREATE TABLE Fornecedor (
+	ID_Fornecedor INT NOT NULL IDENTITY(1,1),
+	Nome NVARCHAR(60) NOT NULL,
+	CPF NVARCHAR(14) NOT NULL UNIQUE DEFAULT '000.000.000-00',
+	CEP NVARCHAR(9),
+	CNPJ NVARCHAR(14),
+	Endereco NVARCHAR(150) NULL,
+	Cidade NVARCHAR(70) NULL,
+	Bairro NVARCHAR(70),
+	UF NVARCHAR(2),
+	Telefone NVARCHAR(15),
+	Email NVARCHAR(70),
+	CONSTRAINT PK_Fornecedor PRIMARY KEY (ID_Fornecedor)
+	);
+GO
+
+CREATE TABLE Lancamento_Entrada (
+	ID_LANEntrada INT NOT NULL IDENTITY (1,1),
+	OPEntrada NVARCHAR(100) NOT NULL,
+	ComboCliente NVARCHAR(100) NOT NULL,
+	Cliente INT NOT NULL,
+	ValorRecebido DECIMAL(7,2),
+	DescricaoLANEntrada NVARCHAR(90),
+	Data_entrada DATE NOT NULL,
+	CONSTRAINT PK_Lancamento_Entrada PRIMARY KEY (ID_LANEntrada),
+	CONSTRAINT FK_Cliente_Entrada FOREIGN KEY (Cliente) REFERENCES Cliente(ID_Cliente) 
+);
+GO
+
+CREATE TABLE Lancamento_Saida (
+	ID_LANSaida INT NOT NULL IDENTITY (1,1),
+	OPSaida NVARCHAR(80) NOT NULL,
+	ComboFornecedor NVARCHAR(100) NOT NULL,
+	Fornecedor INT NOT NULL,
+	ValorGasto DECIMAL(7,2),
+	DescricaoLANSaida NVARCHAR(90),
+	Data_saida DATE NOT NULL,
+    CONSTRAINT PK_Lancamento_Saida PRIMARY KEY (ID_LANSaida), 
+	CONSTRAINT FK_Fornecedor_Saida FOREIGN KEY (Fornecedor) REFERENCES Fornecedor(ID_Fornecedor)
+);
+GO
+
+CREATE TABLE Operacao (
+	ID_Operacao INT NOT NULL IDENTITY (1,1),
+	Descricao NVARCHAR(300) NOT NULL,
+	Tipo INT NOT NULL,
+    CONSTRAINT PK_Operacao PRIMARY KEY (ID_Operacao)
+);
+GO
+
+CREATE TABLE PrecoUnitLL (
+    ID_PrecoUnitLL INT NOT NULL IDENTITY (1,1),
+	ValorUnitLL FLOAT NOT NULL DEFAULT '0.00',
+	Data_preco DATE NOT NULL,
+	Cliente_ID INT NOT NULL,
+	CONSTRAINT PK_PrecoUnitLL PRIMARY KEY (ID_PrecoUnitLL),
+	CONSTRAINT FK_Cliente_PrecoUnitLL FOREIGN KEY (Cliente_ID) REFERENCES Cliente(ID_Cliente)
+);
+GO
+
+CREATE TABLE Usuario (
+	NomeUsuario NVARCHAR(60) NOT NULL UNIQUE,
+	SenhaUsuario NVARCHAR(20) NOT NULL,
+	CONSTRAINT PK_Usuario PRIMARY KEY (NomeUsuario)
+);
+GO
+-- incerção de dados primários
+
+
+INSERT INTO Usuario(NomeUsuario, SenhaUsuario)
+VALUES ('dekamilk', 'deka')
+GO
+
+INSERT INTO Cliente( Nome, CPF, CEP, Endereco, Cidade, Bairro, UF, Telefone, Email)
+VALUES ('Coperida cooperativa', '651.551.390-90', '99830-000', 'R. Dr. Maruri, 1586', 'Gaurama', 'Centro', 'RS', '(49) 3441-4200', 'coperdia@hotmail.com')
+GO
+
+INSERT INTO Fornecedor( Nome, CPF, CEP, Endereco, Cidade, Bairro, UF, Telefone, Email)
+VALUES ('Nutribov', '924.445.570-69', '15084-160', 'Rua Jose Polachini Sobrinho, 896', 'Sao Paulo', 'Centro', 'SP', ' (17) 3304-8387', 'nutribov@hotmail.com')
+GO
+
+INSERT INTO Operacao( Descricao, Tipo)
+VALUES ('Venda de Leite',1)
+GO
+
+
+INSERT INTO Operacao( Descricao, Tipo)
+VALUES ('Venda de Terneiros',1)
+GO
+
+INSERT INTO Operacao( Descricao, Tipo)
+VALUES ('Venda de Vacas', 1)
+GO
+
+INSERT INTO Operacao( Descricao, Tipo)
+VALUES ('Compra de Vacinas',0)
+GO
+
+INSERT INTO Operacao( Descricao, Tipo)
+VALUES ('Compra de Ração', 0)
+GO
+
+INSERT INTO Operacao( Descricao, Tipo)
+VALUES ('Compra de Pastagem' ,0)
+GO
+
+INSERT INTO Lancamento_Entrada( OPEntrada, ComboCliente, Cliente, ValorRecebido, DescricaoLANEntrada, Data_entrada)
+VALUES ('Venda de Vacas', 'Coperida cooperativa', '1', '5000.50', 'Adeus mimosa', '2022-10-08' )
+GO
+
+INSERT INTO Lancamento_Entrada( OPEntrada, ComboCliente, Cliente, ValorRecebido, DescricaoLANEntrada, Data_entrada)
+VALUES ('Venda de Terneiros', 'Coperida cooperativa', '1', '389.53', 'teste demonstração', '2022-10-05' )
+GO
+
+
+INSERT INTO Lancamento_Saida( OPSaida, ComboFornecedor, Fornecedor, ValorGasto, DescricaoLANSaida, Data_saida)
+VALUES ('Compra de Vacinas', 'Nutribov', '1', '1389.53', 'teste demonstração', '2022-11-05' )
+GO
+
+INSERT INTO Lancamento_Saida( OPSaida, ComboFornecedor, Fornecedor, ValorGasto, DescricaoLANSaida, Data_saida)
+VALUES ('Compra de Pastagem', 'Nutribov', '1', '89.53', 'teste demonstração', '2022-11-05' )
