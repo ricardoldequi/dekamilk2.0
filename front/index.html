@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
     <title>DeKamilk - Versão WEB</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
 <body>
     <input type="checkbox" id="check">
     <!--cabecalho começo-->
@@ -18,6 +16,7 @@
         </label>
         <div class="left">
             <h3>DeKa<span>MILK</span></h3>
+            <img src="assets/Logo.svg" class="logo">
         </div>
         <div class="right"> 
             <a href="#" class="btSair">Sair</a>
@@ -27,12 +26,12 @@
     <!--barra lateral começo-->
     <div class="sidebar">
         <center>
-            <img src="Logo.svg" class="logo" alt="Logo DeKamilk">
-            <h2>Dekamilk</h2>
+            <img src="assets/User.jpg" class="ftUser" alt="FotoUser">
+            <h2>Usuário</h2>
         </center>
-        <a href="#" class="nav__link active"><ion-icon name="desktop-outline"></ion-icon><span>Home</span></a>
+        <a href="#" class="nav__link active"><ion-icon name="desktop-outline" class="icones"></ion-icon><span>Home</span></a>
 
-        <div class="nav__link colapse"><ion-icon name="create-outline"></ion-icon><span>Cadastros</span>
+        <div class="nav__link colapse"><ion-icon name="create-outline" class="icones"></ion-icon><span>Cadastros</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="#" class="collapse__sublink">Clientes</a>
@@ -41,8 +40,7 @@
              </ul>
         </div>
 
-
-        <div class="nav__link "><ion-icon name="cash-outline"></ion-icon><span>Financeiro</span>
+        <div class="nav__link "><ion-icon name="cash-outline" class="icones"></ion-icon><span>Financeiro</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="#" class="collapse__sublink">Pagar</a>
@@ -50,7 +48,7 @@
              </ul>
         </div>
 
-        <div class="nav__link "><ion-icon name="flask-outline"></ion-icon><span>Controle</span>
+        <div class="nav__link "><ion-icon name="flask-outline" class="icones"></ion-icon><span>Controle</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="#" class="collapse__sublink">Preço do Litro</a>
@@ -59,7 +57,7 @@
              </ul>
         </div>
 
-        <div class="nav__link "><ion-icon name="newspaper-outline"></ion-icon><span>Relatórios</span>
+        <div class="nav__link "><ion-icon name="newspaper-outline" class="icones"></ion-icon><span>Relatórios</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="#" class="collapse__sublink">Receitas</a>
@@ -67,17 +65,15 @@
              </ul>
         </div>
 
-        <div class="nav__link "><ion-icon name="finger-print-outline"></ion-icon><span>Segurança</span>
+        <div class="nav__link "><ion-icon name="finger-print-outline" class="icones"></ion-icon><span>Segurança</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="#" class="collapse__sublink">Permissões de Acesso</a>
                  <a href="#" class="collapse__sublink">Usuários</a>
              </ul>
         </div>
-
     </div>
     <!--barra lateral final-->
-
     <div class="content"></div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

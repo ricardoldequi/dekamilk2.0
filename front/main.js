@@ -18,3 +18,13 @@ for(i=0;i<linkCollapse.length;i++){
     rotate.classList.toggle('rotate')
   })
 }
+/*
+document.querySelector('.collapseMenu').addEventListener('click', () => {
+  document.querySelector('.sidebar').classList.toggle('isOpen');
+  document.querySelector('.fechaMenu').classList.toggle('isClose');
+});
+
+document.querySelector('.fechaMenu').addEventListener('click', () => {
+  document.querySelector('.sidebar').classList.toggle('isOpen');
+  document.querySelector('.fechaMenu').classList.toggle('isClose');
+});*/
