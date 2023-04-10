@@ -36,6 +36,17 @@ header { /*cabeçalho*/
     position: fixed;
 }
 
+.center h4{ /*titulo das telas*/
+    color: #DCE3ED;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 800;
+    padding-left: 640px;
+    max-height: 100px;
+    position: fixed;
+    margin-top: -35px;
+}
+
 .btSair { /*SAIR*/
     padding: 5px;
     background: #36b2fa;
@@ -231,17 +242,199 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
     transform: rotate(180deg);
 }
 
-/*
-.fechaMenu {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 0;
-    left:0;
-    z-index: 1;
+/*TELA DE CADASTRO DE CLIENTES*/
+
+.box {
+    position: absolute;
+    top: 11%;
+    left: 25%;
+    transform: translate(-0%, -0%);
+    background-color: #6891ba87;
+    padding: 15px;
+    width: 766px;
+    height: 612px;
 }
 
-.isClose {
-    display: none;
-}*/
+.inputBox {
+    position: relative;
+}
+
+.inputCliente {
+    background-color: #C4CDD9;
+    border: none;
+    border-radius: 5px;
+    height: 45px;
+    left: 94px;
+    font-size: 19px;
+    outline: none;
+    width: 100%;
+    letter-spacing: 2px;
+}
+
+.labelInput {
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    pointer-events: none;
+    transition: 0.5s;
+    font-size: 20px;
+    color: #000;
+
+}
+
+.inputCliente:focus ~ .labelInput,
+.inputCliente:valid ~ .labelInput {
+    top: -20px;
+    font-size: 15px;
+    color: #2d4a6c;
+}
+
+#nomeCliente {
+    width: 650px;
+    height: 45px;
+    left: 94px;
+
+}
+
+#CPFCliente {
+    width: 263px;
+    height: 45px;
+    left: 94px;
+}
+
+#IECliente {
+    width: 218px;
+    height: 45px;
+    left: 526px;
+    transform: translate(164px, 0px);
+}
+
+#labelIE {
+    padding-left: 435px;
+}
+
+#EnderecoCliente {
+    width: 650px;
+    height: 45px;
+    left: 94px; 
+}
+
+#CidadeCliente {
+    width: 218px;
+    height: 45px;
+    left: 94px;
+}
+
+#UFCliente {
+    width: 93px;
+    height: 45px;
+    left: 370px;
+    transform: translate(63px, 0px);
+}
+
+#labelUF {
+    padding-left: 285px;
+}
+
+#CEPCliente {
+    width: 218px;
+    height: 45px;
+    left: 526px;
+    transform: translate(114px, 0px);
+}
+
+#labelCEP {
+    padding-left: 435px;  
+}
+
+p1 {
+    position: absolute;
+    width: 82px;
+
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+
+}
+
+#TelefoneCliente {
+    width: 238px;
+    height: 45px;
+    left: 94px;
+}
+
+#EmailCliente {
+    width: 292px;
+    height: 45px;
+    left: 452px;
+    transform: translate(120px, 0px);
+}
+
+#labelEmail {
+    padding-left: 367px;  
+}
+
+#btIncluir {
+    width: 100px;
+    height: 40px;
+    background: #4173AB;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    
+}
+
+#btIncluir:hover{
+    background: #3d638f;
+}
+
+#btDeletar {
+    width: 100px;
+    height: 40px;
+    background: #4173AB;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    
+}
+
+#btDeletar:hover{
+    background: #3d638f;
+}
+
+#btAlterar {
+    width: 100px;
+    height: 40px;
+    background: #4173AB;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    
+}
+
+#btAlterar:hover{
+    background: #3d638f;
+}
+
+#btConsultar {
+    width: 150px;
+    background: #4173AB;
+    border-radius: 5px;
+    border: none;
+    padding: 15px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    float: right;
+}
+
+#btConsultar:hover{
+    background: #3d638f;
+}
