@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de gerenciamento leiteiro">
+    <title>Cadastro de Clientes</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <!--TELA PADRÃO-->
+    <input type="checkbox" id="check">
+    <!--cabecalho começo-->
+    <header>
+        <label for="check">
+            <ion-icon name="menu-outline" id="btSidebar"></ion-icon>
+        </label>
+        <div class="left">
+            <h3>DeKa<span>MILK</span></h3>
+            <img src="assets/Logo.svg" class="logo">
+        </div>
+        <div class="center">
+            <h4>Cadastro de Clientes</h4>
+        </div>
+        <div class="right"> 
+            <a href="#" class="btSair">Sair</a>
+        </div>
+    </header>
+    <!--cabecalho final-->
+    <!--barra lateral começo-->
+    <div class="sidebar">
+        <center>
+            <img src="assets/User.jpg" class="ftUser" alt="FotoUser">
+            <h2>Usuário</h2>
+        </center>
+        <a href="home.html" class="nav__link active"><ion-icon name="desktop-outline" class="icones"></ion-icon><span>Home</span></a>
+
+        <div class="nav__link colapse"><ion-icon name="create-outline" class="icones"></ion-icon><span>Cadastros</span>
+            <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+             <ul class="collapse__menu">
+                 <a href="clientes.html" class="collapse__sublink">Clientes</a>
+                 <a href="fornecedores.html" class="collapse__sublink">Fornecedores</a>
+                 <a href="#" class="collapse__sublink">Operações</a>
+             </ul>
+        </div>
+
+        <div class="nav__link "><ion-icon name="cash-outline" class="icones"></ion-icon><span>Financeiro</span>
+            <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+             <ul class="collapse__menu">
+                 <a href="#" class="collapse__sublink">Pagar</a>
+                 <a href="#" class="collapse__sublink">Receber</a>
+             </ul>
+        </div>
+
+        <div class="nav__link "><ion-icon name="flask-outline" class="icones"></ion-icon><span>Controle</span>
+            <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+             <ul class="collapse__menu">
+                 <a href="#" class="collapse__sublink">Preço do Litro</a>
+                 <a href="#" class="collapse__sublink">Animais</a>
+                 <a href="#" class="collapse__sublink">Medicamentos</a>
+             </ul>
+        </div>
+
+        <div class="nav__link "><ion-icon name="newspaper-outline" class="icones"></ion-icon><span>Relatórios</span>
+            <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+             <ul class="collapse__menu">
+                 <a href="#" class="collapse__sublink">Receitas</a>
+                 <a href="#" class="collapse__sublink">Despesas</a>
+             </ul>
+        </div>
+
+        <div class="nav__link "><ion-icon name="finger-print-outline" class="icones"></ion-icon><span>Segurança</span>
+            <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+             <ul class="collapse__menu">
+                 <a href="#" class="collapse__sublink">Permissões de Acesso</a>
+                 <a href="#" class="collapse__sublink">Usuários</a>
+             </ul>
+        </div>
+    </div>
+    <!--barra lateral final-->
+    <!--TELA PADRÃO-->
+    <!--cadastro de clientes-->
+    <div class="box">
+        <form action="">
+            <br>
+            <div class="inputBox">
+                <input type="text" autocomplete="off" name="nomeCliente" id="nomeCliente" class="inputCliente" required>
+                <label for="nomeCliente" class="labelInput">Nome</label>
+            </div>
+            <br><br>
+            <div class="inputBox">
+                <input type="text" autocomplete="off" name="CPFCliente" id="CPFCliente" class="inputCliente" required>
+                <label for="CPFCliente" class="labelInput">CPF</label>
+                <a>
+                    <input type="text" autocomplete="off" name="IECliente" id="IECliente" class="inputCliente" required>
+                    <label for="IECliente" name="labelIE" id="labelIE" class="labelInput">Inscrição Estadual</label>
+                </a>
+            </div>
+            <br><br>
+            <div class="inputBox">
+                <input type="text" autocomplete="off" name="EnderecoCliente" id="EnderecoCliente" class="inputCliente" required>
+                <label for="EnderecoCliente" class="labelInput">Endereço</label>
+            </div>
+            <br><br>
+            <div class="inputBox">
+                <input type="text" autocomplete="off" name="CidadeCliente" id="CidadeCliente" class="inputCliente" required>
+                <label for="CidadeCliente" class="labelInput">Cidade</label>
+                <a>
+                    <input type="text" autocomplete="off" name="UFCliente" id="UFCliente" class="inputCliente" required>
+                    <label for="UFCliente" name="labelUF" id="labelUF" class="labelInput">UF</label>
+                </a>
+                <a>
+                    <input type="text" autocomplete="off" name="CEPCliente" id="CEPCliente" class="inputCliente" required>
+                    <label for="CEPCliente" name="labelCEP" id="labelCEP" class="labelInput">CEP</label>
+                </a>
+            </div>
+            <br><br>
+            <p1>Contato</p1>
+            <br><br>
+            <div class="inputBox">
+                <input type="tel" autocomplete="off" name="TelefoneCliente" id="TelefoneCliente" class="inputCliente" required>
+                <label for="TelefoneCliente" class="labelInput">Telefone</label>
+                <a>
+                    <input type="text" autocomplete="off" name="EmailCliente" id="EmailCliente" class="inputCliente" required>
+                    <label for="EmailCliente" name="labelEmail" id="labelEmail" class="labelInput">Email</label>
+                </a>
+            </div>
+            <br><br>
+            <input type="submit" name="btIncluir" id="btIncluir" value="Incluir">
+            <input type="submit" name="btDeletar" id="btDeletar" value="Deletar">
+            <input type="submit" name="btAlterar" id="btAlterar" value="Alterar">
+            <input type="submit" name="btConsultar" id="btConsultar" value="Consultar">
+        </form>
+    </div>
+
+    <div class="content"></div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src ="main.js"></script>
+</body>
+</html>
