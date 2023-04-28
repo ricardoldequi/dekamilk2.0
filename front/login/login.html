@@ -37,12 +37,15 @@
             var senha = document.getElementById('senha').value;
 
             if(login == "admin" && senha == "admin"){
-                location.href = "home.html";
+                location.href = "/front/home/home.html";
+                localStorage.setItem("user", "qualquercoisa");
             }else{
                 alert('Usuário ou senha incorretos.');
             }
 
         }
+
+        
 
     </script>
     

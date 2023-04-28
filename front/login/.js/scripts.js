@@ -7,3 +7,18 @@ document.addEventListener("keypress", function(e) {
 
     }
 })
+
+history.pushState(null, null, document.URL);
+window.addEventListener('popstate', function () {
+    history.pushState(null, null, document.URL);
+});
+
+
+
+
+function logout() {
+    localStorage.removeItem("user");
+}
+
+export default logout;
+
