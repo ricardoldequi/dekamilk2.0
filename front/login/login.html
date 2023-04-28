@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de  login</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <script src="js/scripts.js"></script>
+</head>
+<body>
+    <section class="area-login">
+        <div class="cabecalho">
+            <div>
+                <h1>DEKA<span>MILK</span></h1>
+                <img src="logo.png">
+            </div>
+            
+            <div class="login">
+                <input type="text" placeholder="Usuário" id="login">
+                <br><br>
+                <input type="password" placeholder="Senha" id="senha">
+                <br><br>
+                <button class="btEntrar" type="button" id="enviar" onclick="logar(); return false" >ENTRAR</button>
+            </div> 
+
+        </div>
+    </section>
+
+
+    <script>
+
+
+        function logar(){
+
+            var login = document.getElementById('login').value;
+            var senha = document.getElementById('senha').value;
+
+            if(login == "admin" && senha == "admin"){
+                location.href = "home.html";
+            }else{
+                alert('Usuário ou senha incorretos.');
+            }
+
+        }
+
+    </script>
+    
+</body>
+</html>
