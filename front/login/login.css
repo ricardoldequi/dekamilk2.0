@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap'); 
+
+body {
+    background-color: #DCE3ED;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.area-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.cabecalho{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #4173ab;
+    width: 305px;
+    height: 360px;
+    padding: 35px;
+    border-radius: 8px;
+}
+
+
+.cabecalho input {
+    margin-top: 1px;
+    background-color: #e9e9e9;
+    text-align: left;
+    padding: 10px;
+    border: none;
+    height: 30px;
+    width: 250px;
+    outline: none;
+    border-radius: 8px;
+    color: #000000;
+}
+
+.cabecalho h1{ /*Escrita DEKAMILK*/
+    color:#DCE3ED;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.cabecalho h1 span{ /*Escrita DEKAMILK*/
+    color:#55bcf8;
+}
+
+
+.cabecalho img{ /*Imagem*/
+    width: 100px;
+    height: auto;
+}
+
+input::placeholder{ 
+    font-size: 15px;
+    width: 100%;
+    color: #696969;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.btEntrar{
+    background-color: #274464;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btEntrar:hover{
+    background: #617f97;
+}
+
+
