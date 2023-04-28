@@ -170,7 +170,7 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
 
 
 .content { /*imagem de fundo*/
-    background: url(assets/Vaca.jpg) no-repeat;
+    background: url(/front/assets/Vaca.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     height:100vh;
@@ -249,10 +249,11 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
     top: 11%;
     left: 25%;
     transform: translate(-0%, -0%);
-    background-color: #6891ba87;
+    background-color: #6aa7e0e3;
     padding: 15px;
     width: 766px;
     height: 612px;
+    border-radius: 5px;
 }
 
 .inputBox {
