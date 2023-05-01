@@ -1,0 +1,139 @@
+DROP DATABASE
+GO
+
+CREATE DATABASE DeKAmilk
+GO
+
+USE DeKAmilk
+GO
+
+CREATE TABLE Cliente (
+	IdCliente SERIAL,
+	Nome VARCHAR(60) NOT NULL,
+	CPF VARCHAR(14) NOT NULL UNIQUE DEFAULT '000.000.000-00',
+	CEP VARCHAR(9),
+	CNPJ VARCHAR(14),
+	Endereco VARCHAR(150),
+	Cidade VARCHAR(70),
+	Bairro VARCHAR(70),
+	UF VARCHAR(2),
+	Telefone VARCHAR(15),
+	Email VARCHAR(70),
+	CONSTRAINT PK_Cliente PRIMARY KEY (IdCliente)
+	);
+GO
+
+CREATE TABLE Fornecedor (
+	IdFornecedor SERIAL,
+	Nome VARCHAR(60) NOT NULL,
+	CPF VARCHAR(14) NOT NULL UNIQUE DEFAULT '000.000.000-00',
+	CEP VARCHAR(9),
+	CNPJ VARCHAR(14),
+	Endereco VARCHAR(150) NULL,
+	Cidade VARCHAR(70) NULL,
+	Bairro VARCHAR(70),
+	UF VARCHAR(2),
+	Telefone VARCHAR(15),
+	Email VARCHAR(70),
+	CONSTRAINT PK_Fornecedor PRIMARY KEY (IdFornecedor)
+	);
+GO
+
+CREATE TABLE Lancamento_Entrada (
+	IdLanEntrada SERIAL,
+	OPEntrada BOOLEAN NOT NULL,
+	Cliente INT NOT NULL,
+	ValorRecebido DECIMAL(7,2),
+	DescricaoLanEntrada VARCHAR(90),
+	DataEntrada DATE NOT NULL,
+	CONSTRAINT PK_LancamentoEntrada PRIMARY KEY (IdLanEntrada),
+	CONSTRAINT FK_ClienteEntrada FOREIGN KEY (Cliente) REFERENCES Cliente (IdCliente),
+	CONSTRAINT FK_OperacaoEntrada FOREIGN KEY (OPEntrada) REFERENCES Operacao (IdOperacao) 
+
+);
+GO
+
+CREATE TABLE Lancamento_Saida (
+	IdLanSaida SERIAL,
+	OPSaida VARCHAR(80) NOT NULL,
+	Fornecedor INT NOT NULL,
+	ValorGasto DECIMAL(7,2),
+	DescricaoLANSaida VARCHAR(90),
+	Data_saida DATE NOT NULL,
+    CONSTRAINT PK_IdLanSaida PRIMARY KEY (IdLanSaida), 
+	CONSTRAINT FK_FornecedorSaida FOREIGN KEY (Fornecedor) REFERENCES Fornecedor(IdFornecedor),
+	CONSTRAINT FK_OperacaoSaida FOREIGN KEY (OPSaisa) REFERENCES Operacao(IdOperacao)
+
+);
+GO
+
+CREATE TABLE Operacao (
+	IdOperacao SERIAL,
+	Descricao VARCHAR(300) NOT NULL,
+	Tipo BOOLEAN NOT NULL, --true é para entrada e false para saida
+    CONSTRAINT PK_Operacao PRIMARY KEY (IdOperacao)
+);
+GO
+
+CREATE TABLE Preco_Unitario (
+    IdPrecoUnitario SERIAL,
+	ValorUnitario FLOAT NOT NULL DEFAULT '0.00',
+	DataPreco DATE NOT NULL,
+	ClienteId INT NOT NULL,
+	CONSTRAINT PK_IdPrecoUnitario PRIMARY KEY (IdPrecoUnitario)
+);
+
+GO
+
+CREATE TABLE Preco_Unitario_Cliente (
+    IdPrecoUnitarioCliente SERIAL,
+	DataPreco DATE NOT NULL,
+	IdCliente INT NOT NULL,
+	IdPrecoUnitario INT NOT NULL,
+	CONSTRAINT PK_IdPrecoUnitarioCliente PRIMARY KEY (IdPrecoUnitarioCliente),
+	CONSTRAINT FK_ClientePrecoUnitario FOREIGN KEY (IdCliente) REFERENCES Cliente (IdCliente),
+	CONSTRAINT FK_IdPrecoUnitario FOREIGN KEY (IdPrecoUnitario) REFERENCES Preco_Unitario(IdPrecoUnitario)
+	);
+
+
+GO
+
+CREATE TABLE Usuario (
+	IdUsuario SERIAL,
+	NomeUsuario VARCHAR(60) NOT NULL UNIQUE,
+	SenhaUsuario VARCHAR(20) NOT NULL,
+	LoginUsuario VARCHAR(60) NOT NULL UNIQUE,
+	CONSTRAINT PK_Usuario PRIMARY KEY (IdUsuario)
+);
+GO
+-- incerção de dados primários
+/*
+
+INSERT INTO Usuario(NomeUsuario, SenhaUsuario, LoginUsuario)
+VALUES ('Acesso configuracao', 'deka', 'dekamilk' );
+GO
+
+INSERT INTO Cliente( Nome, CPF, CEP, Endereco, Cidade, Bairro, UF, Telefone, Email)VALUES
+('Coperida cooperativa', '651.551.390-90', '99830-000', 'R. Dr. Maruri, 1586', 'Gaurama', 'Centro', 'RS', '(49) 3441-4200', 'coperdia@hotmail.com'),
+('Nutribov', '924.445.570-69', '15084-160', 'Rua Jose Polachini Sobrinho, 896', 'Sao Paulo', 'Centro', 'SP', ' (17) 3304-8387', 'nutribov@hotmail.com');
+GO
+
+INSERT INTO Operacao( Descricao, Tipo)VALUES
+('Venda de Leite',true),
+('Venda de Terneiros',true),
+('Venda de Vacas', true),
+('Compra de Vacinas',false),
+('Compra de Ração', false),
+('Compra de Pastagem' ,false);
+GO
+
+INSERT INTO Lancamento_Entrada( OPEntrada, Cliente, ValorRecebido, DescricaoLANEntrada, Data_entrada)VALUES 
+('Venda de Vacas', '1', '5000.50', 'Adeus mimosa', '2022-10-08' ),
+('Venda de Terneiros', '1', '389.53', 'teste demonstração', '2022-10-05' );
+GO
+
+
+INSERT INTO Lancamento_Saida( OPSaida, Fornecedor, ValorGasto, DescricaoLANSaida, Data_saida)VALUES
+('Compra de Vacinas', '1', '1389.53', 'teste demonstração', '2022-11-05' ),
+('Compra de Pastagem', '1', '89.53', 'teste demonstração', '2022-11-05' );
+
