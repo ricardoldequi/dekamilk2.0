@@ -168,9 +168,9 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
     width: 0px;
 }
 
-
+ 
 .content { /*imagem de fundo*/
-    background: url(/front/assets/Vaca.jpg) no-repeat;
+    background: #DCE3ED;
     background-size: cover;
     background-position: center;
     height:100vh;
@@ -242,25 +242,25 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
     transform: rotate(180deg);
 }
 
-/*TELA DE CADASTRO DE CLIENTES*/
+/*TELA DE CADASTRO DE FORNECEDORES*/
 
 .box {
-    position: absolute;
+    position:absolute;
     top: 11%;
-    left: 25%;
+    left: 20%;
     transform: translate(-0%, -0%);
-    background-color: #6aa7e0e3;
+    background-color: #DCE3ED;
     padding: 15px;
-    width: 766px;
+    width: 800px;
     height: 612px;
-    border-radius: 5px;
+    transition: 0.5s;
 }
 
 .inputBox {
     position: relative;
 }
 
-.inputCliente {
+.inputFornecedor {
     background-color: #C4CDD9;
     border: none;
     border-radius: 5px;
@@ -283,27 +283,27 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
 
 }
 
-.inputCliente:focus ~ .labelInput,
-.inputCliente:valid ~ .labelInput {
+.inputFornecedor:focus ~ .labelInput,
+.inputFornecedor:valid ~ .labelInput {
     top: -20px;
     font-size: 15px;
     color: #2d4a6c;
 }
 
-#nomeCliente {
+#nomeFornecedor {
     width: 650px;
     height: 45px;
     left: 94px;
 
 }
 
-#CPFCliente {
+#CPFFornecedor {
     width: 263px;
     height: 45px;
     left: 94px;
 }
 
-#IECliente {
+#IEFornecedor {
     width: 218px;
     height: 45px;
     left: 526px;
@@ -314,19 +314,19 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
     padding-left: 435px;
 }
 
-#EnderecoCliente {
+#EnderecoFornecedor {
     width: 650px;
     height: 45px;
     left: 94px; 
 }
 
-#CidadeCliente {
+#CidadeFornecedor {
     width: 218px;
     height: 45px;
     left: 94px;
 }
 
-#UFCliente {
+#UFFornecedor {
     width: 93px;
     height: 45px;
     left: 370px;
@@ -337,7 +337,7 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
     padding-left: 285px;
 }
 
-#CEPCliente {
+#CEPFornecedor {
     width: 218px;
     height: 45px;
     left: 526px;
@@ -359,13 +359,13 @@ p1 {
 
 }
 
-#TelefoneCliente {
+#TelefoneFornecedor {
     width: 238px;
     height: 45px;
     left: 94px;
 }
 
-#EmailCliente {
+#EmailFornecedor {
     width: 292px;
     height: 45px;
     left: 452px;

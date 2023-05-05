@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sistema de gerenciamento leiteiro">
-    <title>Cadastro de Clientes</title>
+    <title>Cadastro de Fornecedores</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -33,9 +33,9 @@
             <img src="/front/assets/User.jpg" class="ftUser" alt="FotoUser">
             <h2>Usuário</h2>
         </center>
-        <a href="/front/home/home.html" class="nav__link active"><ion-icon name="desktop-outline" class="icones"></ion-icon><span>Home</span></a>
+        <a href="/front/home/home.html" class="nav__link"><ion-icon name="desktop-outline" class="icones"></ion-icon><span>Home</span></a>
 
-        <div class="nav__link colapse"><ion-icon name="create-outline" class="icones"></ion-icon><span>Cadastros</span>
+        <div class="nav__link colapse active"><ion-icon name="create-outline" class="icones"></ion-icon><span>Cadastros</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="/front/clientes/clientes.html" class="collapse__sublink">Clientes</a>
@@ -56,8 +56,7 @@
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="#" class="collapse__sublink">Preço do Litro</a>
-                 <a href="#" class="collapse__sublink">Animais</a>
-                 <a href="#" class="collapse__sublink">Medicamentos</a>
+                 <a href="#" class="collapse__sublink">Rebanho</a>
              </ul>
         </div>
 
@@ -79,50 +78,50 @@
     </div>
     <!--barra lateral final-->
     <!--TELA PADRÃO-->
-    <!--cadastro de clientes-->
-    <div class="box">
+    <!--cadastro de fornecedores-->
+    <div class="box content">
         <form action="">
             <br>
             <div class="inputBox">
-                <input type="text" autocomplete="off" name="nomeCliente" id="nomeCliente" class="inputCliente" required>
-                <label for="nomeCliente" class="labelInput">Nome</label>
+                <input type="text" autocomplete="off" name="nomeFornecedor" id="nomeFornecedor" class="inputFornecedor" required>
+                <label for="nomeFornecedor" class="labelInput">Nome</label>
             </div>
             <br><br>
             <div class="inputBox">
-                <input type="text" autocomplete="off" name="CPFCliente" id="CPFCliente" class="inputCliente" required>
-                <label for="CPFCliente" class="labelInput">CPF</label>
+                <input type="text" autocomplete="off" name="CPFFornecedor" id="CPFFornecedor" class="inputFornecedor" required>
+                <label for="CPFFornecedor" class="labelInput">CPF</label>
                 <a>
-                    <input type="text" autocomplete="off" name="IECliente" id="IECliente" class="inputCliente" required>
-                    <label for="IECliente" name="labelIE" id="labelIE" class="labelInput">Inscrição Estadual</label>
+                    <input type="text" autocomplete="off" name="IEFornecedor" id="IEFornecedor" class="inputFornecedor" required>
+                    <label for="IEFornecedor" name="labelIE" id="labelIE" class="labelInput">Inscrição Estadual</label>
                 </a>
             </div>
             <br><br>
             <div class="inputBox">
-                <input type="text" autocomplete="off" name="EnderecoCliente" id="EnderecoCliente" class="inputCliente" required>
-                <label for="EnderecoCliente" class="labelInput">Endereço</label>
+                <input type="text" autocomplete="off" name="EnderecoFornecedor" id="EnderecoFornecedor" class="inputFornecedor" required>
+                <label for="EnderecoFornecedor" class="labelInput">Endereço</label>
             </div>
             <br><br>
             <div class="inputBox">
-                <input type="text" autocomplete="off" name="CidadeCliente" id="CidadeCliente" class="inputCliente" required>
-                <label for="CidadeCliente" class="labelInput">Cidade</label>
+                <input type="text" autocomplete="off" name="CidadeFornecedor" id="CidadeFornecedor" class="inputFornecedor" required>
+                <label for="CidadeFornecedor" class="labelInput">Cidade</label>
                 <a>
-                    <input type="text" autocomplete="off" name="UFCliente" id="UFCliente" class="inputCliente" required>
-                    <label for="UFCliente" name="labelUF" id="labelUF" class="labelInput">UF</label>
+                    <input type="text" autocomplete="off" name="UFFornecedor" id="UFFornecedor" class="inputFornecedor" required>
+                    <label for="UFFornecedor" name="labelUF" id="labelUF" class="labelInput">UF</label>
                 </a>
                 <a>
-                    <input type="text" autocomplete="off" name="CEPCliente" id="CEPCliente" class="inputCliente" required>
-                    <label for="CEPCliente" name="labelCEP" id="labelCEP" class="labelInput">CEP</label>
+                    <input type="text" autocomplete="off" name="CEPFornecedor" id="CEPFornecedor" class="inputFornecedor" required>
+                    <label for="CEPFornecedor" name="labelCEP" id="labelCEP" class="labelInput">CEP</label>
                 </a>
             </div>
             <br><br>
             <p1>Contato</p1>
             <br><br>
             <div class="inputBox">
-                <input type="tel" autocomplete="off" name="TelefoneCliente" id="TelefoneCliente" class="inputCliente" required>
-                <label for="TelefoneCliente" class="labelInput">Telefone</label>
+                <input type="tel" autocomplete="off" name="TelefoneFornecedor" id="TelefoneFornecedor" class="inputFornecedor" required>
+                <label for="TelefoneFornecedor" class="labelInput">Telefone</label>
                 <a>
-                    <input type="text" autocomplete="off" name="EmailCliente" id="EmailCliente" class="inputCliente" required>
-                    <label for="EmailCliente" name="labelEmail" id="labelEmail" class="labelInput">Email</label>
+                    <input type="text" autocomplete="off" name="EmailFornecedor" id="EmailFornecedor" class="inputFornecedor" required>
+                    <label for="EmailFornecedor" name="labelEmail" id="labelEmail" class="labelInput">Email</label>
                 </a>
             </div>
             <br><br>
@@ -136,6 +135,6 @@
     <div class="content"></div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src ="main.js"></script>
+    <script src ="/front/main.js"></script>
 </body>
 </html>
