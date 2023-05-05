@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* { /*zerar infos*/
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+header { /*cabeçalho*/
+    position: fixed;
+    background: #4173AB;
+    padding: 20px;
+    width: 100%;
+    height: 30px;
+}
+
+.left h3 { /*DEKAMILK*/
+    color: #DCE3ED;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 800;
+    padding-left: 70px;
+}
+
+.left span { /*MILK de cor diferente*/
+    color: #36b2fa;
+}
+
+.left .logo { /*vaca no logo*/
+    width: auto;
+    height: auto;
+    max-width: 35px;
+    max-height: 100px;
+    padding-left: 180px;
+    margin-top: -35px;
+    position: fixed;
+}
+
+.center h4{ /*titulo das telas*/
+    color: #DCE3ED;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 800;
+    padding-left: 640px;
+    max-height: 100px;
+    position: fixed;
+    margin-top: -35px;
+}
+
+.btSair { /*SAIR*/
+    padding: 5px;
+    background: #36b2fa;
+    text-decoration: none;
+    float: right;
+    margin-top: -35px;
+    margin-right: 40px;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    transition: 0.5s;
+    transition-property: background;
+}
+.btSair:hover { /*cor quando coloca mouse em cima*/
+    background: #4173AB;
+}
+
+.sidebar { /*barra lateral*/
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    margin-top: 50px;
+    padding-top: 30px;
+    left: 0;
+    background: #4173AB;
+    transition: 0.5s;
+    transition-property: left;
+}
+
+.sidebar .ftUser { /*barra lateral imagem "usuario"*/
+    width: 100px;
+    height: 100px;
+    border-radius: 70px;
+    margin-top: 10px;
+}
+
+.sidebar h2 { /*barra lateral nome "usuario"*/
+    color: #ccc;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.sidebar a { /*barra lateral subtelas as*/
+    color:#fff;
+    display: block;
+    width: 100%;
+    line-height: 40px;
+    text-decoration: none;
+    padding-left: 35px;
+    box-sizing: border-box;
+}
+
+.sidebar a:hover { /*cor quando coloca mouse em cima*/
+    color:#55bcf8;
+}
+
+.sidebar div { /*barra lateral subtelas div*/
+    color:#fff;
+    display: block;
+    width: 100%;
+    line-height: 40px;
+    text-decoration: none;
+    padding-left: 35px;
+    box-sizing: border-box;
+}
+
+.sidebar div:hover { /*cor quando coloca mouse em cima*/
+    color:#55bcf8;
+}
+
+.sidebar ion-icon { /*?*/
+    padding-right: 1px;
+}
+
+label #btSidebar { /*botão para abrir barra lateral*/
+    z-index: 1;
+    margin-top: -5px;
+    position: fixed;
+    color: #fff;
+    font-size: 45px;
+    left: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    transition-property: color;
+}
+
+label #btSidebar:hover { /*cor quando coloca mouse em cima*/
+    color:#55bcf8
+}
+
+#check:checked ~ .sidebar { /*vai e volta a barra*/
+    left: -190px;
+}
+
+#check:checked ~ .sidebar a span { /*coloca os icones a na barra fechada*/
+    display: none;
+}
+
+#check:checked ~ .sidebar div span { /*coloca os icones div na barra fechada*/
+    display: none;
+}
+
+#check:checked ~ .sidebar .collapse__link span { /*nao coloca os icones de abrir na barra fechada*/
+    display: none;
+}
+
+#check:checked ~ .sidebar .icones { /*coloca os icones div na barra fechada*/
+    font-size: 30px;
+    margin-left: 145px;
+    padding-top: 25px;
+    width: 80px;
+}
+
+#check:checked ~ .sidebar .collapse__link { /*nao coloca os icones de abrir na barra fechada*/
+    display: none;
+    font-size: 0px;
+    margin-left: 0px;
+    width: 0px;
+}
+
+
+.content { /*imagem de fundo*/
+    background: url(/front/assets/Vaca.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    height:100vh;
+    transition: 0.5s;
+}
+
+#check:checked ~ .content { /*move a img de funto quando abre e fecha barra lateral*/
+    margin-left: 60px;
+}
+
+#check { /*esconde o check do menu*/
+    display: none;
+}
+
+.active { /*marcar as telas quando clica*/
+    background-color: #0e8fdad7;
+}
+
+.sidebar .nav__link { /*telas com subtelas*/
+    font-size: 20px;
+    color:#fff;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 35px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.sidebar .nav__link ion-icon { /*icones para abrir das telas com subtelas*/
+    padding-right: 10px;
+}
+
+.sidebar .nav__link:hover { /*cor quando coloca mouse em cima*/
+    background-color: #0e8fdad7;
+}
+
+.sidebar .collapse { /*fazer mostrar as subtelas*/
+    grid-template-columns: 20px max-content 1fr;
+}
+
+.sidebar .collapse__link { /*icone para fazer mostrar as subtelas*/
+    transition: 0.5s;
+}
+
+.collapse__menu { /*mostra as subtelas*/
+    display: none;
+    padding: 0.1rem 0.1rem;
+}
+
+.collapse__sublink { /*nome das subtelas*/
+    color: var(--sub-color);
+    font-size: 15px;
+}
+.collapse__sublink:hover { /*cor quando coloca mouse em cima*/
+    color: #fff;
+}
+
+.sidebar .collapse ion-icon { 
+    padding-right: 10px;
+}
+
+.showCollapse { /*Show collapse*/
+    display: block;
+}
+
+.rotate {   /*Rotate icon*/
+    transform: rotate(180deg);
+}
+
+/*TELA DE CADASTRO DE CLIENTES*/
+
+.box {
+    position: absolute;
+    top: 11%;
+    left: 25%;
+    transform: translate(-0%, -0%);
+    background-color: #6aa7e0e3;
+    padding: 15px;
+    width: 766px;
+    height: 612px;
+    border-radius: 5px;
+}
+
+.inputBox {
+    position: relative;
+}
+
+.inputPagar {
+    background-color: #C4CDD9;
+    border: none;
+    border-radius: 5px;
+    height: 45px;
+    left: 94px;
+    font-size: 19px;
+    outline: none;
+    width: 100%;
+    letter-spacing: 2px;
+}
+
+.labelInput {
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    pointer-events: none;
+    transition: 0.5s;
+    font-size: 20px;
+    color: #000;
+
+}
+
+.inputPagar:focus ~ .labelInput,
+.inputPagar:valid ~ .labelInput {
+    top: -20px;
+    font-size: 15px;
+    color: #2d4a6c;
+}
+
+#nomePagar {
+    width: 650px;
+    height: 45px;
+    left: 94px;
+}
+
+#operacao {
+    width: 766px;
+    height: 45px;
+    left: 94px;
+}
+
+#dataPagar {
+    width: 263px;
+    height: 45px;
+    left: 94px
+}
+
+#valorPagar{
+    width: 263px;
+    height: 45px;
+}
+
+#descricao{
+    width: 766px;
+    height: 180px;
+    left: 94px;
+}
+
+#btIncluir {
+    width: 100px;
+    height: 40px;
+    background: #4173AB;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    
+}
+
+#btIncluir:hover{
+    background: #3d638f;
+}
+
+#btDeletar {
+    width: 100px;
+    height: 40px;
+    background: #4173AB;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#btDeletar:hover{
+    background: #3d638f;
+}
+
+#btAlterar {
+    width: 100px;
+    height: 40px;
+    background: #4173AB;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    
+}
+
+#btAlterar:hover{
+    background: #3d638f;
+}
+
+#btConsultar {
+    width: 150px;
+    background: #4173AB;
+    border-radius: 5px;
+    border: none;
+    padding: 15px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    float: right;
+}
+
+#btConsultar:hover{
+    background: #3d638f;
+}

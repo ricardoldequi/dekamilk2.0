@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de gerenciamento leiteiro">
+    <title>Pagamentos</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <!--TELA PADRÃO-->
+    <input type="checkbox" id="check">
+    <!--cabecalho começo-->
+    <header>
+        <label for="check">
+            <ion-icon name="menu-outline" id="btSidebar"></ion-icon>
+        </label>
+        <div class="left">
+            <h3>DeKa<span>MILK</span></h3>
+            <img src="/front/assets/Logo.svg" class="logo">
+        </div>
+        <div class="center">
+            <h4>Pagamentos</h4>
+        </div>
+        <div class="right"> 
+            <a href="#" class="btSair">Sair</a>
+        </div>
+    </header>
+    <!--cabecalho final-->
+    <!--barra lateral começo-->
+    <div class="sidebar">
+        <center>
+            <img src="/front/assets/User.jpg" class="ftUser" alt="FotoUser">
+            <h2>Usuário</h2>
+        </center>
+        <a href="/front/home/home.html" class="nav__link active"><ion-icon name="desktop-outline" class="icones"></ion-icon><span>Home</span></a>
+
+        <div class="nav__link colapse"><ion-icon name="create-outline" class="icones"></ion-icon><span>Cadastros</span>
+            <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+             <ul class="collapse__menu">
+                 <a href="/front/clientes/clientes.html" class="collapse__sublink">Clientes</a>
+                 <a href="fornecedores.html" class="collapse__sublink">Fornecedores</a>
+                 <a href="#" class="collapse__sublink">Operações</a>
+             </ul>
+        </div>
+
+        <div class="nav__link "><ion-icon name="cash-outline" class="icones"></ion-icon><span>Financeiro</span>
+            <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+             <ul class="collapse__menu">
+                 <a href="#" class="collapse__sublink">Pagar</a>
+                 <a href="#" class="collapse__sublink">Receber</a>
+             </ul>
+        </div>
+
+        <div class="nav__link "><ion-icon name="flask-outline" class="icones"></ion-icon><span>Controle</span>
+            <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+             <ul class="collapse__menu">
+                 <a href="#" class="collapse__sublink">Preço do Litro</a>
+                 <a href="#" class="collapse__sublink">Animais</a>
+                 <a href="#" class="collapse__sublink">Medicamentos</a>
+             </ul>
+        </div>
+
+        <div class="nav__link "><ion-icon name="newspaper-outline" class="icones"></ion-icon><span>Relatórios</span>
+            <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+             <ul class="collapse__menu">
+                 <a href="#" class="collapse__sublink">Receitas</a>
+                 <a href="#" class="collapse__sublink">Despesas</a>
+             </ul>
+        </div>
+
+        <div class="nav__link "><ion-icon name="finger-print-outline" class="icones"></ion-icon><span>Segurança</span>
+            <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+             <ul class="collapse__menu">
+                 <a href="#" class="collapse__sublink">Permissões de Acesso</a>
+                 <a href="#" class="collapse__sublink">Usuários</a>
+             </ul>
+        </div>
+    </div>
+    <!--barra lateral final-->
+    <!--TELA PADRÃO-->
+    <!--Pagamentos-->
+    <div class="box">
+        <form action="">
+            
+            <div class="inputBox">
+                <input type="text" autocomplete="off" name="operacao" id="operacao" class="inputPagar" required>
+                <label for="operacao" class="labelInput">Operação</label>
+            </div>
+            <br><br>
+            <div class="inputBox">
+                <input type="text" autocomplete="off" name="fornecedor" id="fornecedor" class="inputPagar" required>
+                <label for="fornecedor" class="labelInput">Fornecedor</label>
+            </div>
+            <br><br>
+            <div class="inputBox">
+                <input type="text" autocomplete="off" name="dataPagar" id="dataPagar" class="inputPagar" required>
+                <label for="dataPagar" class="labelInput">Data</label>
+            </div>
+            <br><br>    
+            <div class="inputBox">
+                <input type="text" autocomplete="off" name="valorPagar" id="valorPagar" class="inputPagar" required>
+                <label for="valorPagar" name="valorPagar" id="labelvalorPagar" class="labelInput">Valor a Pagar</label>
+            </div>
+            <br><br>
+            <div class="inputBox">
+                <input type="text" autocomplete="off" name="descricao" id="descricao" class="inputPagar" required>
+                <label for="descricao" class="labelInput">Descricão</label>
+            </div>
+            <br><br>
+            <input type="submit" name="btIncluir" id="btIncluir" value="Incluir">
+            <input type="submit" name="btDeletar" id="btDeletar" value="Deletar">
+            <input type="submit" name="btAlterar" id="btAlterar" value="Alterar">
+            <input type="submit" name="btConsultar" id="btConsultar" value="Consultar">
+        </form>
+    </div>
+
+    <div class="content"></div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src ="main.js"></script>
+</body>
+</html>
