@@ -168,9 +168,9 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
     width: 0px;
 }
 
-
+ 
 .content { /*imagem de fundo*/
-    background: url(/front/assets/Vaca.jpg) no-repeat;
+    background: #DCE3ED;
     background-size: cover;
     background-position: center;
     height:100vh;
@@ -241,9 +241,6 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
 .rotate {   /*Rotate icon*/
     transform: rotate(180deg);
 }
-
-/*TELA DE CADASTRO DE CLIENTES*/
-
 .box {
     position: absolute;
     top: 11%;
@@ -254,6 +251,20 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
     width: 766px;
     height: 612px;
     border-radius: 5px;
+}
+
+/*TELA DE CADASTRO DE FORNECEDORES*/
+
+.box {
+    position:absolute;
+    top: 11%;
+    left: 20%;
+    transform: translate(-0%, -0%);
+    background-color: #DCE3ED;
+    padding: 15px;
+    width: 800px;
+    height: 612px;
+    transition: 0.5s;
 }
 
 .inputBox {
@@ -297,26 +308,36 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
 }
 
 #operacao {
-    width: 766px;
+    width: 800px;
     height: 45px;
     left: 94px;
+}
+
+#fornecedor{
+    width: 800px;
+    height: 45px;
 }
 
 #dataPagar {
     width: 263px;
     height: 45px;
-    left: 94px
 }
 
 #valorPagar{
     width: 263px;
     height: 45px;
+    transform: translate(535px, 0px);
+}
+
+#labelvalorPagar {
+    padding-left: 535px;
 }
 
 #descricao{
-    width: 766px;
+    width: 800px;
     height: 180px;
     left: 94px;
+    resize: none;
 }
 
 #btIncluir {
