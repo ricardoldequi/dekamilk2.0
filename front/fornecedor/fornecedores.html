@@ -88,6 +88,11 @@
             </div>
             <br><br>
             <div class="inputBox">
+                <!-- <div>
+                    <input type="radio" name="tipoFornecedor" id="tipoFornecedor" value="Pessoa Física"/> Pessoa Física<br />
+                    <input type="radio" name="tipoFornecedor" id="tipoFornecedor" value="Pessoa Jurídica"/> Pessoa Jurídica<br />
+                </div> -->
+               
                 <input type="text" autocomplete="off" name="CPFFornecedor" id="CPFFornecedor" class="inputFornecedor" required>
                 <label for="CPFFornecedor" class="labelInput">CPF</label>
                 <a>
@@ -117,8 +122,12 @@
             <p1>Contato</p1>
             <br><br>
             <div class="inputBox">
-                <input type="tel" autocomplete="off" name="TelefoneFornecedor" id="TelefoneFornecedor" class="inputFornecedor" required>
-                <label for="TelefoneFornecedor" class="labelInput">Telefone</label>
+                <input type="tel" autocomplete="off" name="TelefoneCFornecedor" id="TelefoneCFornecedor" class="inputFornecedor" required>
+                <label for="TelefoneCFornecedor" class="labelInput">Telefone Celular</label>
+                <a>
+                    <input type="text" autocomplete="off" name="TelefoneFFornecedor" id="TelefoneFFornecedor" class="inputFornecedor" required>
+                    <label for="TelefoneFFornecedor" name="labelTelefoneF" id="labelTelefoneF" class="labelInput">Telefone Fixo</label>
+                </a>
                 <a>
                     <input type="text" autocomplete="off" name="EmailFornecedor" id="EmailFornecedor" class="inputFornecedor" required>
                     <label for="EmailFornecedor" name="labelEmail" id="labelEmail" class="labelInput">Email</label>

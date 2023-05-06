@@ -41,7 +41,7 @@ header { /*cabeçalho*/
     text-transform: uppercase;
     font-size: 22px;
     font-weight: 800;
-    padding-left: 640px;
+    padding-left: 750px;
     max-height: 100px;
     position: fixed;
     margin-top: -35px;
@@ -247,7 +247,7 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
 .box {
     position:absolute;
     top: 11%;
-    left: 20%;
+    left: 25%;
     transform: translate(-0%, -0%);
     background-color: #DCE3ED;
     padding: 15px;
@@ -291,37 +291,41 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
 }
 
 #nomeFornecedor {
-    width: 650px;
+    width: 800px;
     height: 45px;
     left: 94px;
 
+}
+
+#tipoFornecedor {
+    left: 94px;
 }
 
 #CPFFornecedor {
     width: 263px;
     height: 45px;
-    left: 94px;
+    left: 1000px;
 }
 
 #IEFornecedor {
     width: 218px;
     height: 45px;
-    left: 526px;
-    transform: translate(164px, 0px);
+    left: 626px;
+    transform: translate(314px, 0px);
 }
 
 #labelIE {
-    padding-left: 435px;
+    padding-left: 582px;
 }
 
 #EnderecoFornecedor {
-    width: 650px;
+    width: 800px;
     height: 45px;
     left: 94px; 
 }
 
 #CidadeFornecedor {
-    width: 218px;
+    width: 290px;
     height: 45px;
     left: 94px;
 }
@@ -330,22 +334,22 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
     width: 93px;
     height: 45px;
     left: 370px;
-    transform: translate(63px, 0px);
+    transform: translate(98px, 0px);
 }
 
 #labelUF {
-    padding-left: 285px;
+    padding-left: 390px;
 }
 
 #CEPFornecedor {
     width: 218px;
     height: 45px;
-    left: 526px;
-    transform: translate(114px, 0px);
+    left: 626px;
+    transform: translate(190px, 0px);
 }
 
 #labelCEP {
-    padding-left: 435px;  
+    padding-left: 580px;  
 }
 
 p1 {
@@ -359,21 +363,32 @@ p1 {
 
 }
 
-#TelefoneFornecedor {
-    width: 238px;
+#TelefoneCFornecedor {
+    width: 190px;
     height: 45px;
     left: 94px;
 }
 
+#TelefoneFFornecedor {
+    width: 160px;
+    height: 45px;
+    left: 94px;
+    transform: translate(50px, 0px);
+}
+
+#labelTelefoneF{
+    padding-left: 243px;  
+}
+
 #EmailFornecedor {
-    width: 292px;
+    width: 340px;
     height: 45px;
     left: 452px;
-    transform: translate(120px, 0px);
+    transform: translate(100px, 0px);
 }
 
 #labelEmail {
-    padding-left: 367px;  
+    padding-left: 458px;  
 }
 
 #btIncluir {
