@@ -41,7 +41,7 @@ header { /*cabeçalho*/
     text-transform: uppercase;
     font-size: 22px;
     font-weight: 800;
-    padding-left: 640px;
+    padding-left: 780px;
     max-height: 100px;
     position: fixed;
     margin-top: -35px;
@@ -170,7 +170,7 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
 
 
 .content { /*imagem de fundo*/
-    background: url(/front/assets/Vaca.jpg) no-repeat;
+    background: #DCE3ED;
     background-size: cover;
     background-position: center;
     height:100vh;
@@ -245,15 +245,15 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
 /*TELA DE CADASTRO DE CLIENTES*/
 
 .box {
-    position: absolute;
+    position:absolute;
     top: 11%;
     left: 25%;
     transform: translate(-0%, -0%);
-    background-color: #6aa7e0e3;
+    background-color: #DCE3ED;
     padding: 15px;
-    width: 766px;
+    width: 800px;
     height: 612px;
-    border-radius: 5px;
+    transition: 0.5s;
 }
 
 .inputBox {
@@ -291,7 +291,7 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
 }
 
 #nomeCliente {
-    width: 650px;
+    width: 800px;
     height: 45px;
     left: 94px;
 
@@ -306,22 +306,22 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
 #IECliente {
     width: 218px;
     height: 45px;
-    left: 526px;
-    transform: translate(164px, 0px);
+    left: 626px;
+    transform: translate(314px, 0px);
 }
 
 #labelIE {
-    padding-left: 435px;
+    padding-left: 582px;
 }
 
 #EnderecoCliente {
-    width: 650px;
+    width: 800px;
     height: 45px;
-    left: 94px; 
+    left: 94px;  
 }
 
 #CidadeCliente {
-    width: 218px;
+    width: 290px;
     height: 45px;
     left: 94px;
 }
@@ -330,22 +330,22 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
     width: 93px;
     height: 45px;
     left: 370px;
-    transform: translate(63px, 0px);
+    transform: translate(98px, 0px);
 }
 
 #labelUF {
-    padding-left: 285px;
+    padding-left: 390px;
 }
 
 #CEPCliente {
     width: 218px;
     height: 45px;
-    left: 526px;
-    transform: translate(114px, 0px);
+    left: 626px;
+    transform: translate(190px, 0px);
 }
 
 #labelCEP {
-    padding-left: 435px;  
+    padding-left: 580px; 
 }
 
 p1 {
@@ -360,20 +360,31 @@ p1 {
 }
 
 #TelefoneCliente {
-    width: 238px;
+    width: 190px;
     height: 45px;
     left: 94px;
 }
 
+#TelefoneFCliente {
+    width: 160px;
+    height: 45px;
+    left: 94px;
+    transform: translate(50px, 0px);
+}
+
+#labelTelefoneF{
+    padding-left: 243px;  
+}
+
 #EmailCliente {
-    width: 292px;
+    width: 340px;
     height: 45px;
     left: 452px;
-    transform: translate(120px, 0px);
+    transform: translate(100px, 0px);
 }
 
 #labelEmail {
-    padding-left: 367px;  
+    padding-left: 458px;  
 }
 
 #btIncluir {
