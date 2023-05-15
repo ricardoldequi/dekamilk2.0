@@ -260,7 +260,7 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
     position: relative;
 }
 
-.inputFornecedor {
+.inputOperacao {
     background-color: #C4CDD9;
     border: none;
     border-radius: 5px;
@@ -283,122 +283,33 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
 
 }
 
-.inputFornecedor:focus ~ .labelInput,
-.inputFornecedor:valid ~ .labelInput {
+.inputOperacao:focus ~ .labelInput,
+.inputOperacao:valid ~ .labelInput {
     top: -20px;
     font-size: 15px;
     color: #2d4a6c;
 }
 
-#nomeFornecedor {
+#descricaoOP {
     width: 800px;
     height: 45px;
     left: 94px;
-
 }
 
-#tipoFornecedor {
-    float: left;
-    left: 94px;
-}
-
-
-#CPFFornecedor {
-    width: 263px;
-    height: 45px;
-    left: 1000px;
-    transform: translate(50px, 0px);
-}
-
-#labelCPFFornecedor {
-    padding-left: 196px;
-    padding-top: 25px;
-}
-
-#IEFornecedor {
-    width: 218px;
-    height: 45px;
-    left: 626px;
-    transform: translate(164px, 0px);
-}
-
-#labelIE {
-    padding-left: 580px;
-    padding-top: 26px;
-}
-
-#EnderecoFornecedor {
-    width: 800px;
-    height: 45px;
-    left: 94px; 
-}
-
-#CidadeFornecedor {
-    width: 290px;
-    height: 45px;
-    left: 94px;
-}
-
-#UFFornecedor {
-    width: 93px;
-    height: 45px;
-    left: 370px;
-    transform: translate(98px, 0px);
-}
-
-#labelUF {
-    padding-left: 390px;
-}
-
-#CEPFornecedor {
-    width: 218px;
-    height: 45px;
-    left: 626px;
-    transform: translate(190px, 0px);
-}
-
-#labelCEP {
-    padding-left: 580px;  
-}
-
-p1 {
-    position: absolute;
-    width: 82px;
-
-    font-style: italic;
-    font-weight: 400;
+.radios {
+    padding: 10px;
     font-size: 20px;
-    line-height: 30px;
-
+    height: 20px;
+    transform: translate(90px, 0px);
 }
 
-#TelefoneCFornecedor {
-    width: 190px;
-    height: 45px;
-    left: 94px;
+#OPSaida {
+    width: 155px;
+    font-size: 150px;
+    transform: translate(70px, 0px);
 }
 
-#TelefoneFFornecedor {
-    width: 160px;
-    height: 45px;
-    left: 94px;
-    transform: translate(50px, 0px);
-}
 
-#labelTelefoneF{
-    padding-left: 243px;  
-}
-
-#EmailFornecedor {
-    width: 340px;
-    height: 45px;
-    left: 452px;
-    transform: translate(100px, 0px);
-}
-
-#labelEmail {
-    padding-left: 458px;  
-}
 
 #btIncluir {
     width: 100px;
