@@ -17,7 +17,7 @@
         </label>
         <div class="left">
             <h3>DeKa<span>MILK</span></h3>
-            <img src="/front/assets/Logo.svg" class="logo">
+            <img src="/assets/Logo.svg" class="logo">
         </div>
         <div class="center">
             <h4>Cadastro de Fornecedores</h4>
@@ -30,25 +30,25 @@
     <!--barra lateral começo-->
     <div class="sidebar">
         <center>
-            <img src="/front/assets/User.jpg" class="ftUser" alt="FotoUser">
+            <img src="/assets/User.jpg" class="ftUser" alt="FotoUser">
             <h2>Usuário</h2>
         </center>
-        <a href="/front/home/home.html" class="nav__link"><ion-icon name="desktop-outline" class="icones"></ion-icon><span>Home</span></a>
+        <a href="home/home.html" class="nav__link"><ion-icon name="desktop-outline" class="icones"></ion-icon><span>Home</span></a>
 
         <div class="nav__link colapse active"><ion-icon name="create-outline" class="icones"></ion-icon><span>Cadastros</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
-                 <a href="/front/clientes/clientes.html" class="collapse__sublink">Clientes</a>
+                 <a href="/clientes/clientes.html" class="collapse__sublink">Clientes</a>
                  <a href="fornecedores.html" class="collapse__sublink">Fornecedores</a>
-                 <a href="#" class="collapse__sublink">Operações</a>
+                 <a href="/operacoes/operacao.html" class="collapse__sublink">Operações</a>
              </ul>
         </div>
 
         <div class="nav__link "><ion-icon name="cash-outline" class="icones"></ion-icon><span>Financeiro</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
-                 <a href="/front/financeiroPagar/financeiroPagar.html" class="collapse__sublink">Pagar</a>
-                 <a href="/front/financeiroReceber/financeiroReceber.html" class="collapse__sublink">Receber</a>
+                 <a href="/financeiroPagar/financeiroPagar.html" class="collapse__sublink">Pagar</a>
+                 <a href="/financeiroReceber/financeiroReceber.html" class="collapse__sublink">Receber</a>
              </ul>
         </div>
 
@@ -88,17 +88,19 @@
             </div>
             <br><br>
             <div class="inputBox">
-                <!-- <div>
-                    <input type="radio" name="tipoFornecedor" id="tipoFornecedor" value="Pessoa Física"/> Pessoa Física<br />
-                    <input type="radio" name="tipoFornecedor" id="tipoFornecedor" value="Pessoa Jurídica"/> Pessoa Jurídica<br />
-                </div> -->
-               
-                <input type="text" autocomplete="off" name="CPFFornecedor" id="CPFFornecedor" class="inputFornecedor" required>
-                <label for="CPFFornecedor" class="labelInput">CPF</label>
-                <a>
-                    <input type="text" autocomplete="off" name="IEFornecedor" id="IEFornecedor" class="inputFornecedor" required>
-                    <label for="IEFornecedor" name="labelIE" id="labelIE" class="labelInput">Inscrição Estadual</label>
-                </a>
+                
+                    <input type="radio" name="tipoFornecedor" id="FornecedorPF" value="PF" checked/> <label for="FornecedorPF">Pessoa Física</label>
+                    <br>
+                    <input type="radio" name="tipoFornecedor" id="FornecedorPJ" value="PJ"/> <label for="FornecedorPJ">Pessoa Jurídica</label>
+                
+                
+                    <input type="text" autocomplete="off" name="CPFFornecedor" id="CPFFornecedor" class="inputFornecedor" required>
+                    <label for="CPFFornecedor" name="labelCPFFornecedor" id="labelCPFFornecedor" class="labelInput">CPF/CNPJ</label>
+                    
+                        <input type="text" autocomplete="off" name="IEFornecedor" id="IEFornecedor" class="inputFornecedor" required>
+                        <label for="IEFornecedor" name="labelIE" id="labelIE" class="labelInput">Inscrição Estadual</label>
+                    
+                
             </div>
             <br><br>
             <div class="inputBox">
@@ -144,6 +146,6 @@
     <div class="content"></div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src ="/front/main.js"></script>
+    <script src ="/main.js"></script>
 </body>
 </html>
