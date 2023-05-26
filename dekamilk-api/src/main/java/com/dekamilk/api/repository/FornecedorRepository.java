@@ -10,6 +10,6 @@ import com.dekamilk.api.model.Fornecedor;
 @Repository
 public interface FornecedorRepository extends JpaRepository <Fornecedor,Long> {
 
-	
+	Fornecedor findById(long id_fornecedor);
 	
 }
