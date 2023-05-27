@@ -39,7 +39,7 @@
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="/front/clientes/clientes.html" class="collapse__sublink">Clientes</a>
-                 <a href="/frontfornecedores.html" class="collapse__sublink">Fornecedores</a>
+                 <a href="/front/fornecedor/fornecedores.html" class="collapse__sublink">Fornecedores</a>
                  <a href="/front/operacoes/operacao.html" class="collapse__sublink">Operações</a>
              </ul>
         </div>
@@ -80,7 +80,7 @@
     <!--TELA PADRÃO-->
     <!--cadastro de fornecedores-->
     <div class="box content">
-        <form action="">
+        <form id="form-cad-forn" action="">
             <br>
             <div class="inputBox">
                 <input type="text" autocomplete="off" name="nomeFornecedor" id="nomeFornecedor" class="inputFornecedor" required>
@@ -96,10 +96,10 @@
                 
                     <input type="text" autocomplete="off" name="CPFFornecedor" id="CPFFornecedor" class="inputFornecedor" required>
                     <label for="CPFFornecedor" name="labelCPFFornecedor" id="labelCPFFornecedor" class="labelInput">CPF/CNPJ</label>
-                    
+                    <a>
                         <input type="text" autocomplete="off" name="IEFornecedor" id="IEFornecedor" class="inputFornecedor" required>
                         <label for="IEFornecedor" name="labelIE" id="labelIE" class="labelInput">Inscrição Estadual</label>
-                    
+                    </a>
                 
             </div>
             <br><br>
@@ -124,8 +124,8 @@
             <p1>Contato</p1>
             <br><br>
             <div class="inputBox">
-                <input type="tel" autocomplete="off" name="TelefoneCFornecedor" id="TelefoneCFornecedor" class="inputFornecedor" required>
-                <label for="TelefoneCFornecedor" class="labelInput">Telefone Celular</label>
+                <input type="text" autocomplete="off" name="TelefoneCFornecedor" id="TelefoneCFornecedor" class="inputFornecedor" required>
+                <label for="TelefoneCFornecedor" name="labelTelefoneC" id="labelTelefoneC" class="labelInput">Telefone Celular</label>
                 <a>
                     <input type="text" autocomplete="off" name="TelefoneFFornecedor" id="TelefoneFFornecedor" class="inputFornecedor" required>
                     <label for="TelefoneFFornecedor" name="labelTelefoneF" id="labelTelefoneF" class="labelInput">Telefone Fixo</label>
@@ -146,6 +146,6 @@
     <div class="content"></div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src ="/front/main.js"></script>
+    <script src ="main_Fornecedor.js"></script>
 </body>
 </html>

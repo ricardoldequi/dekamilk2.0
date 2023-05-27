@@ -32,11 +32,12 @@ document.querySelector('.fechaMenu').addEventListener('click', () => {
 
 // Cadastro de Fornecedor
 
-document.getElementById('btIncluir').addEventListener('click', function(event) {
-  event.preventDefault(); // Evita o comportamento padrão de envio do formulário
-
-  salvarDados();
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('btIncluir').addEventListener('click', function(event) {
+    salvarDados();
+  });
 });
+
 
 function salvarDados() {
   // Capturando os valores dos inputs
@@ -64,7 +65,7 @@ function salvarDados() {
     cep: cep,
     telefoneCelular: telefone,
     telefoneFixo: telefone_fixo,
-    //email: email
+    email: email
   };
 
   // Fazendo a requisição HTTP para a API
