@@ -15,7 +15,7 @@ public class Fornecedor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id_fornecedor;
+	private long id_fornecedor;
 	
 	@Column(nullable = false)
 	private String nome;
@@ -46,6 +46,9 @@ public class Fornecedor {
 
 	@Column
 	private String telefone_fixo;
+	
+	@Column
+	private String email;
 
 	
 	
