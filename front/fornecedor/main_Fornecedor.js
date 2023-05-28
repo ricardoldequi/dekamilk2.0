@@ -32,60 +32,64 @@ document.querySelector('.fechaMenu').addEventListener('click', () => {
 
 // Cadastro de Fornecedor
 
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('btIncluir').addEventListener('click', function(event) {
-    salvarDados();
-  });
-});
+document.getElementById('btIncluir').addEventListener('click', function(event) {
+  event.preventDefault(); // Evita que o formulário seja enviado
 
+  // Obtém os valores dos campos de entrada
+  var nomeFornecedor = document.getElementById('nomeFornecedor').value;
+  var tipoFornecedor = document.querySelector('input[name="tipoFornecedor"]:checked').value;
+  var CPFFornecedor = document.getElementById('CPFFornecedor').value;
+  var IEFornecedor = document.getElementById('IEFornecedor').value;
+  var enderecoFornecedor = document.getElementById('EnderecoFornecedor').value;
+  var cidadeFornecedor = document.getElementById('CidadeFornecedor').value;
+  var UFFornecedor = document.getElementById('UFFornecedor').value;
+  var CEPFornecedor = document.getElementById('CEPFornecedor').value;
+  var telefoneCFornecedor = document.getElementById('TelefoneCFornecedor').value;
+  var telefoneFFornecedor = document.getElementById('TelefoneFFornecedor').value;
+  var emailFornecedor = document.getElementById('EmailFornecedor').value;
 
-function salvarDados() {
-  // Capturando os valores dos inputs
-  var nome = document.getElementById('nomeFornecedor').value;
-  var tipo = document.querySelector('input[name="tipoFornecedor"]:checked').value;
-  var cpfCnpj = document.getElementById('CPFFornecedor').value;
-  var inscricaoEstadual = document.getElementById('IEFornecedor').value;
-  var endereco = document.getElementById('EnderecoFornecedor').value;
-  var cidade = document.getElementById('CidadeFornecedor').value;
-  var uf = document.getElementById('UFFornecedor').value;
-  var cep = document.getElementById('CEPFornecedor').value;
-  var telefoneCelular = document.getElementById('TelefoneCFornecedor').value;
-  var telefoneFixo = document.getElementById('TelefoneFFornecedor').value;
-  var email = document.getElementById('EmailFornecedor').value;
-
-  // Objeto com os dados a serem enviados para o servidor
-  var dados = {
-    nome: nome,
-    //tipo: tipo,
-    //cpfCnpj: cpfCnpj,
-    //inscricaoEstadual: inscricaoEstadual,
-    endereco: endereco,
-    cidade: cidade,
-    uf: uf,
-    cep: cep,
-    telefoneCelular: telefone,
-    telefoneFixo: telefone_fixo,
-    email: email
+  // Cria um objeto com os dados do fornecedor
+  var fornecedor = {
+    nome: nomeFornecedor,
+    tipo: tipoFornecedor,
+    cpf_cnpj: CPFFornecedor,
+    inscricao_estadual: IEFornecedor,
+    endereco: enderecoFornecedor,
+    cidade: cidadeFornecedor,
+    uf: UFFornecedor,
+    cep: CEPFornecedor,
+    telefone_celular: telefoneCFornecedor,
+    telefone_fixo: telefoneFFornecedor,
+    email: emailFornecedor
   };
 
-  // Fazendo a requisição HTTP para a API
-  fetch('http://localhost:8080/fornecedor/fornecedor', {
+  // Realiza a requisição fetch
+  fetch('http://localhost:8080/fornecedor/fornecedores', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(dados)
+    body: JSON.stringify(fornecedor)
   })
   .then(function(response) {
     if (response.ok) {
-      console.log('Dados salvos com sucesso!');
-      // Limpar os campos do formulário após o salvamento (opcional)
-      document.getElementById('form-cad-forn').reset();
+      alert('Fornecedor incluído com sucesso!');
+      // Limpa os campos de entrada após o sucesso
+      document.getElementById('nomeFornecedor').value = '';
+      document.getElementById('CPFFornecedor').value = '';
+      document.getElementById('IEFornecedor').value = '';
+      document.getElementById('EnderecoFornecedor').value = '';
+      document.getElementById('CidadeFornecedor').value = '';
+      document.getElementById('UFFornecedor').value = '';
+      document.getElementById('CEPFornecedor').value = '';
+      document.getElementById('TelefoneCFornecedor').value = '';
+      document.getElementById('TelefoneFFornecedor').value = '';
+      document.getElementById('EmailFornecedor').value = '';
     } else {
-      console.log('Erro ao salvar os dados.');
+      throw new Error('Erro ao incluir fornecedor. Por favor, tente novamente.');
     }
   })
   .catch(function(error) {
-    console.log('Ocorreu um erro na requisição:', error.message);
+    alert(error.message);
   });
-}
+});

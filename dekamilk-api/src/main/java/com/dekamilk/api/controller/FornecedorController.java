@@ -25,7 +25,7 @@ public class FornecedorController {
 		return fornecedorRepository.findAll();
 		
 	}
-	@GetMapping("/fornecedor/{id}")
+	@GetMapping("/fornecedor/{id_fornecedor}")
 	public Fornecedor listaFornecedorUnico(@PathVariable(value = "id_fornecedor") long id_fornecedor){
 		
 		return fornecedorRepository.findById(id_fornecedor);
