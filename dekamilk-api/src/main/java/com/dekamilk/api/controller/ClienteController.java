@@ -29,7 +29,7 @@ import com.dekamilk.api.repository.ClienteRepository;
 
 			
 		}
-		@GetMapping("/cliente/{id}")
+		@GetMapping("/cliente/{id_cliente}")
 		public Cliente listaClienteUnico(@PathVariable(value = "id_cliente") long id_cliente){
 			
 			return clienteRepository.findById(id_cliente);
