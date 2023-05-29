@@ -23,7 +23,7 @@ CREATE TYPE tipo AS ENUM ('E', 'S');
 CREATE TABLE Cliente (
 	id_cliente Serial,
 	nome VARCHAR(60) NOT NULL,
-	cpf VARCHAR(14) NOT NULL UNIQUE  DEFAULT '000.000.000-00',
+	cpf VARCHAR(14)UNIQUE DEFAULT '000.000.000-00',
 	cep VARCHAR(9),
 	cnpj VARCHAR(14),
 	endereco VARCHAR(150),
@@ -41,7 +41,7 @@ CREATE TABLE Cliente (
 CREATE TABLE Fornecedor (
 	id_fornecedor Serial,
 	nome VARCHAR(60) NOT NULL,
-	cpf VARCHAR(14) NOT NULL UNIQUE DEFAULT '000.000.000-00',
+	cpf VARCHAR(14) UNIQUE DEFAULT '000.000.000-00',
 	cep VARCHAR(10),
 	cnpj VARCHAR(14),
 	endereco VARCHAR(150),
@@ -83,7 +83,7 @@ CREATE TABLE LancamentoSaida (
 	descricao_saida VARCHAR(90),
 	data_saida DATE NOT NULL,
 	    CONSTRAINT PK_Lancamento_Saida PRIMARY KEY (lancamento_saida), 
-			CONSTRAINT FK_Fornecedor FOREIGN KEY (Fornecedor) REFERENCES Fornecedor(id_fornecedor),
+			CONSTRAINT FK_fornecedor_saida FOREIGN KEY (Fornecedor) REFERENCES Fornecedor(id_fornecedor),
 			CONSTRAINT FK_operacao_saida FOREIGN KEY (operacao_saida) REFERENCES Operacao(id_operacao)
 
 );
