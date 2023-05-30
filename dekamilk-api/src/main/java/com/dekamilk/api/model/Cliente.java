@@ -3,7 +3,7 @@ package com.dekamilk.api.model;
 
 	import jakarta.persistence.Column;
 	import jakarta.persistence.Entity;
-	import jakarta.persistence.GeneratedValue;
+    import jakarta.persistence.GeneratedValue;
 	import jakarta.persistence.GenerationType;
 	import jakarta.persistence.Id;
 	import jakarta.persistence.Table;
@@ -11,7 +11,7 @@ package com.dekamilk.api.model;
 
 	@Entity
 	@Data
-	@Table(name = "Cliente")
+	@Table(name = "cliente")
 	public class Cliente {
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
@@ -50,7 +50,7 @@ package com.dekamilk.api.model;
 		@Column
 		private String email;
 		
-		
+			
 	
 
 }

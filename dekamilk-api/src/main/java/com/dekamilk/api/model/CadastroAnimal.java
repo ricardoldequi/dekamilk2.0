@@ -9,7 +9,9 @@ import java.sql.Date;
 
 import jakarta.persistence.Column;
 	import jakarta.persistence.Entity;
-	import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
 	import jakarta.persistence.GenerationType;
 	import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -19,19 +21,19 @@ import jakarta.persistence.Table;
 
 	@Entity
 	@Data
-	@Table(name = "CadastroAnimal")
+	@Table(name = "cadastro_animal")
 	public class CadastroAnimal {
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
-		private Long id_amimal;
+		private Long id_animal;
 		
 		@ManyToOne (optional = false)
 		@JoinColumn(name = "id_classificacao", referencedColumnName =  "id_classificacao")
 		private ClassificacaoBovina id_classificacao;
 		
-	/*	@ManyToOne (optional = false)
+	    @ManyToOne (optional = false)
 		@JoinColumn(name = "id_raca", referencedColumnName =  "id_raca")
-		private Raca id_raca;*/
+		private Raca id_raca;
 		
 		@Column(nullable = false)
 		private int numero_brinco;
@@ -57,8 +59,8 @@ import jakarta.persistence.Table;
 		@Column
 		private BigDecimal peso;
 
-		@Column
-		private String sexo;
+		@Enumerated(EnumType.STRING)
+		private Sexo sexo;
 
 		@Column
 		private Date data_cria;

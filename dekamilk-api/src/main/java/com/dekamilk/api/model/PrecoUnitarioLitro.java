@@ -15,7 +15,7 @@ import lombok.Data;
 
 	@Entity
     @Data
-	@Table(name = "PrecoUnitarioLitro")
+	@Table(name = "preco_unitario_litro")
 	public class PrecoUnitarioLitro {
 
 		@Id

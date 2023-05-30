@@ -17,33 +17,33 @@ import com.dekamilk.api.repository.LancamentoSaidaRepository;
 
 
 @RestController
-@RequestMapping("/saida")
+@RequestMapping("/saidas")
 public class LancamentoSaidaController {
 	
 	@Autowired
 	LancamentoSaidaRepository lancSaidaRepository;
-	@GetMapping("/lancamentosSaida")
+	@GetMapping
 	public List<LancamentoSaida> listarTudo(){
 		return lancSaidaRepository.findAll();
 		
 	}
-	@GetMapping("/lancamento_saida/{id_saida}")
-	public LancamentoSaida listalancSaidaUnico(@PathVariable(value = "id_entrada") long id_saida){
+	@GetMapping("/{id_saida}")
+	public LancamentoSaida listalancSaidaUnico(@PathVariable(value = "id_saida") long id_saida){
 		
 		return lancSaidaRepository.findById(id_saida);
 		
 	}
-	@PostMapping("/lancamento_saida")
+	@PostMapping
 	public LancamentoSaida salvalancSaida (@RequestBody LancamentoSaida saida) {
 		return lancSaidaRepository.save(saida);
 		
 	}
-	@DeleteMapping("/lancamento_saida")
+	@DeleteMapping
 	public void DeletalancSaida (@RequestBody LancamentoSaida saida) {
 		lancSaidaRepository.delete(saida);
 		
 	}
-	@PutMapping("/lancamento_saida")
+	@PutMapping("/{id_saida}")
 	public LancamentoSaida alteralancSaida (@RequestBody LancamentoSaida saida) {
 		return lancSaidaRepository.save(saida);
 		

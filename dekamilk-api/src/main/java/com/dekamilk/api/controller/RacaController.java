@@ -21,32 +21,32 @@ import com.dekamilk.api.repository.RacaRepository;
 
 
 	@RestController
-	@RequestMapping("/raca")
+	@RequestMapping("/racas")
 	public class RacaController {
 		@Autowired
 		RacaRepository racaRepository;
-		@GetMapping("/racas")
+		@GetMapping
 		public List<Raca> listarTudo(){
 			return racaRepository.findAll();
 			
 		}
-		@GetMapping("/raca/{id_raca}")
+		@GetMapping("/{id_raca}")
 		public Raca listaRacaUnico(@PathVariable(value = "id_raca") long id_raca){
 			
 			return racaRepository.findById(id_raca);
 			
 		}
-		@PostMapping("/raca")
+		@PostMapping
 		public Raca salvaRaca(@RequestBody Raca raca) {
 			return racaRepository.save(raca);
 			
 		}
-		@DeleteMapping("/raca")
+		@DeleteMapping
 		public void deletaRaca (@RequestBody Raca raca) {
 			racaRepository.delete(raca);
 			
 		}
-		@PutMapping("/raca")
+		@PutMapping("/{id_raca}")
 		public Raca alteraRaca (@RequestBody Raca raca) {
 			return racaRepository.save(raca);
 		}
