@@ -12,7 +12,7 @@ package com.dekamilk.api.model;
 
 	@Entity
 	@Data
-	@Table(name = "ClassificacaoBovina")
+	@Table(name = "classificacao_bovina")
 	public class ClassificacaoBovina {
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +21,7 @@ package com.dekamilk.api.model;
 		@Column(nullable = false)
 		private String nome;
 		
-		  @Column
+		@Column
 		    private  String sexo;
 	}
 		

@@ -16,34 +16,34 @@ import com.dekamilk.api.model.Fornecedor;
 import com.dekamilk.api.repository.FornecedorRepository;
 
 @RestController
-@RequestMapping("/fornecedor")
+@RequestMapping("/fornecedores")
 public class FornecedorController {
 
 	
 	@Autowired
 	FornecedorRepository fornecedorRepository;
-	@GetMapping("/fornecedores")
+	@GetMapping
 	public List<Fornecedor> listarTudo(){
 		return fornecedorRepository.findAll();
 		
 	}
-	@GetMapping("/fornecedor/{id_fornecedor}")
+	@GetMapping("/{id_fornecedor}")
 	public Fornecedor listaFornecedorUnico(@PathVariable(value = "id_fornecedor") long id_fornecedor){
 		
 		return fornecedorRepository.findById(id_fornecedor);
 		
 	}
-	@PostMapping("/fornecedor")
+	@PostMapping
 	public Fornecedor salvaFornecedor (@RequestBody Fornecedor fornecedor) {
 		return fornecedorRepository.save(fornecedor);
 		
 	}
-	@DeleteMapping("/fornecedor")
+	@DeleteMapping
 	public void DeletaFornecedor (@RequestBody Fornecedor fornecedor) {
 		 fornecedorRepository.delete(fornecedor);
 		
 	}
-	@PutMapping("/fornecedor")
+	@PutMapping("/{id_fornecedor}")
 	public Fornecedor alteraFornecedor (@RequestBody Fornecedor fornecedor) {
 		return fornecedorRepository.save(fornecedor);
 		

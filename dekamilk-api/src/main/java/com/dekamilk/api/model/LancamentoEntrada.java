@@ -5,7 +5,7 @@ import java.sql.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -16,20 +16,21 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "LancamentoEntrada")
+@Table(name = "lancamento_entrada")
 public class LancamentoEntrada {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id_entrada;
 	
-	@ManyToOne (optional = false)
+	@ManyToOne (optional = false,fetch = FetchType.EAGER)
 	@JoinColumn(name = "operacao_entrada", referencedColumnName =  "id_operacao")
 	private Operacao operacao_entrada;
 	
-	@ManyToOne (optional = false)
-	@JoinColumn(name = "cleinte_entrada", referencedColumnName ="id_cliente")
-	private Cliente cleinte_entrada;
+	@ManyToOne (optional = false, fetch = FetchType.EAGER)
+	@JoinColumn(name = "cliente", referencedColumnName ="id_cliente")
+	private Cliente cliente;
+	
 	
 	@Column(nullable = false)
 	private double valor_recebido;

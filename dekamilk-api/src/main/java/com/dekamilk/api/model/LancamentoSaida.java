@@ -16,20 +16,20 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "LancamentoSaida")
+@Table(name = "lancamento_saida")
 public class LancamentoSaida {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id_entrada;
+	private long id_saida;
 	
 	@ManyToOne (optional = false)
 	@JoinColumn(name = "operacao_saida", referencedColumnName =  "id_operacao")
-	private Operacao id_operacao;
+	private Operacao operacao_saida;
 	
 	@ManyToOne (optional = false)
-	@JoinColumn(name = "fornecedor_saida", referencedColumnName ="id_fornecedor")
-	private Fornecedor id_fornecedor;
+	@JoinColumn(name = "fornecedor", referencedColumnName ="id_fornecedor")
+	private Fornecedor fornecedor;
 	
 	@Column(nullable = false)
 	private double valor_gasto;

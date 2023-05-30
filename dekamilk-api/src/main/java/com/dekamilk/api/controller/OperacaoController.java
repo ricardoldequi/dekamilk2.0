@@ -16,32 +16,32 @@ import com.dekamilk.api.model.Operacao;
 import com.dekamilk.api.repository.OperacaoRepository;
 
 @RestController
-@RequestMapping("/operacao")
+@RequestMapping("/operacoes")
 public class OperacaoController {
 	@Autowired
 	OperacaoRepository operacaoRepository;
-	@GetMapping("/operacoes")
+	@GetMapping
 	public List<Operacao> listarTudo(){
 		return operacaoRepository.findAll();
 		
 	}
-	@GetMapping("/operacao/{id_operacao}")
+	@GetMapping("/{id_operacao}")
 	public Operacao listaOperacaoUnica(@PathVariable(value = "id_operacao") long id_operacao){
 		
 		return operacaoRepository.findById(id_operacao);
 		
 	}
-	@PostMapping("/operacao")
+	@PostMapping
 	public Operacao salvaOperacao (@RequestBody Operacao operacao) {
 		return operacaoRepository.save(operacao);
 		
 	}
-	@DeleteMapping("/operacao")
+	@DeleteMapping
 	public void deletaOperacao (@RequestBody Operacao operacao) {
 		operacaoRepository.delete(operacao);
 		
 	}
-	@PutMapping("/operacao")
+	@PutMapping("/{id_operacao}")
 	public Operacao alteraOperacao (@RequestBody Operacao operacao) {
 		return operacaoRepository.save(operacao);
 		

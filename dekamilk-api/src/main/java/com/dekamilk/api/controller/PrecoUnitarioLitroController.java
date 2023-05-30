@@ -17,32 +17,32 @@ import com.dekamilk.api.repository.PrecoUnitarioLitroRepository;
 
 
 	@RestController
-	@RequestMapping("/preco")
+	@RequestMapping("/preco_unitario")
 	public class PrecoUnitarioLitroController {
 		@Autowired
 		PrecoUnitarioLitroRepository precoUnitRepository;
-		@GetMapping("/precoUnitario")
+		@GetMapping
 		public List<PrecoUnitarioLitro> listarTudo(){
 			return precoUnitRepository.findAll();
 			
 		}
-		@GetMapping("/precoUnitario/{id_preco_unitario}")
+		@GetMapping("/{id_preco_unitario}")
 		public PrecoUnitarioLitro listaOperacaoUnica(@PathVariable(value = "id_preco_unitario") long id_preco_unitario){
 			
 			return precoUnitRepository.findById(id_preco_unitario);
 			
 		}
-		@PostMapping("/precoUnitario")
+		@PostMapping
 		public PrecoUnitarioLitro salvaOperacao (@RequestBody PrecoUnitarioLitro precoUnitario) {
 			return precoUnitRepository.save(precoUnitario);
 			
 		}
-		@DeleteMapping("/precoUnitario")
+		@DeleteMapping
 		public void deletaOperacao (@RequestBody PrecoUnitarioLitro precoUnitario) {
 			precoUnitRepository.delete(precoUnitario);
 			
 		}
-		@PutMapping("/precoUnitario")
+		@PutMapping("/{id_preco_unitario}")
 		public PrecoUnitarioLitro alteraOperacao (@RequestBody PrecoUnitarioLitro precoUnitario) {
 			return precoUnitRepository.save(precoUnitario);
 			
