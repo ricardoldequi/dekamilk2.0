@@ -17,32 +17,32 @@ import com.dekamilk.api.repository.CadastroAnimalRepository;
 
 
 	@RestController
-	@RequestMapping("/cadastro")
+	@RequestMapping("/animais")
 	public class CadastroAnimalController {
 		@Autowired
 		CadastroAnimalRepository animalRepository;
-		@GetMapping("/cadastros")
+		@GetMapping
 		public List<CadastroAnimal> listarTudo(){
 			return animalRepository.findAll();
 			
 		}
-		@GetMapping("/cadastroAnimal/{id_animal}")
+		@GetMapping("/{id_animal}")
 		public CadastroAnimal listaAnimalUnico(@PathVariable(value = "id_animal") long id_animal){
 			
 			return animalRepository.findById(id_animal);
 			
 		}
-		@PostMapping("/cadastroAnimal")
+		@PostMapping
 		public CadastroAnimal salvaAnimal (@RequestBody CadastroAnimal animal) {
 			return animalRepository.save(animal);
 			
 		}
-		@DeleteMapping("/cadastroAnimal")
+		@DeleteMapping
 		public void deletaAnimal (@RequestBody CadastroAnimal animal) {
 			animalRepository.delete(animal);
 			
 		}
-		@PutMapping("/cadastroAnimal")
+		@PutMapping("/{id_animal}")
 		public CadastroAnimal alteraAnimal (@RequestBody CadastroAnimal animal) {
 			return animalRepository.save(animal);
 		}

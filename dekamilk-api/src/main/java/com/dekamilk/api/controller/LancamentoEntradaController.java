@@ -1,5 +1,6 @@
 package com.dekamilk.api.controller;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,32 +17,34 @@ import com.dekamilk.api.model.LancamentoEntrada;
 import com.dekamilk.api.repository.LancamentoEntradaRepository;
 
 @RestController
-@RequestMapping("/entrada")
+@RequestMapping("/entradas")
 public class LancamentoEntradaController {
 	@Autowired
 	LancamentoEntradaRepository lancEntradaRepository;
-	@GetMapping("/lancEntrada")
+	
+	@GetMapping
 	public List<LancamentoEntrada> listarTudo(){
 		return lancEntradaRepository.findAll();
 		
+	
 	}
-	@GetMapping("/lancamento_entrada/{id_entrada}")
+	@GetMapping("/{id_entrada}")
 	public LancamentoEntrada listaLancEntrada(@PathVariable(value = "id_entrada") long id_entrada){
 		
 		return lancEntradaRepository.findById(id_entrada);
 		
 	}
-	@PostMapping("/lancamento_entrada")
+	@PostMapping
 	public LancamentoEntrada salvalancEntrada (@RequestBody LancamentoEntrada entrada) {
 		return lancEntradaRepository.save(entrada);
 		
 	}
-	@DeleteMapping("/lancamento_entrada")
+	@DeleteMapping
 	public void DeletalancEntrada (@RequestBody LancamentoEntrada entrada) {
 		lancEntradaRepository.delete(entrada);
 		
 	}
-	@PutMapping("/lancamento_entrada")
+	@PutMapping("/{id_entrada}")
 	public LancamentoEntrada alteralancEntrada (@RequestBody LancamentoEntrada entrada) {
 		return lancEntradaRepository.save(entrada);
 		

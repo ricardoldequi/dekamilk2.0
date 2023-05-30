@@ -12,7 +12,7 @@ import jakarta.persistence.GeneratedValue;
 
 	@Entity
 	@Data
-	@Table(name = "Operacao")
+	@Table(name = "operacao")
 	public class Operacao {
 
 		@Id

@@ -18,34 +18,35 @@ import com.dekamilk.api.repository.ClienteRepository;
 
 
 	@RestController
-	@RequestMapping("/cliente")
+	@RequestMapping("/clientes")
 	public class ClienteController {
 		
 		@Autowired
 		ClienteRepository clienteRepository;
-		@GetMapping("/clientes")
+		
+		@GetMapping
 		public List<Cliente> listarTudo(){
 			return clienteRepository.findAll();
 
 			
 		}
-		@GetMapping("/cliente/{id_cliente}")
+		@GetMapping("/{id_cliente}")
 		public Cliente listaClienteUnico(@PathVariable(value = "id_cliente") long id_cliente){
-			
+		
 			return clienteRepository.findById(id_cliente);
 			
 		}
-		@PostMapping("/cliente")
+		@PostMapping
 		public Cliente salvaCliente (@RequestBody Cliente cliente) {
 			return clienteRepository.save(cliente);
 			
 		}
-		@DeleteMapping("/cliente")
+		@DeleteMapping
 		public void deletaCliente (@RequestBody Cliente cliente) {
 			 clienteRepository.delete(cliente);
 			
 		}
-		@PutMapping("/cliente")
+		@PutMapping("/{id_cliente}")
 		public Cliente alteracliente (@RequestBody Cliente cliente) {
 			return clienteRepository.save(cliente);
 			

@@ -18,32 +18,32 @@ import com.dekamilk.api.repository.UsuarioRepository;
 
 
 	@RestController
-	@RequestMapping("/usuario")
+	@RequestMapping("/usuarios")
 	public class UsuarioController {
 		@Autowired
 		UsuarioRepository usuarioRepository;
-		@GetMapping("/usuarios")
+		@GetMapping
 		public List<Usuario> listarTudo(){
 			return usuarioRepository.findAll();
 			
 		}
-		@GetMapping("/usuario/{id_usuario}")
+		@GetMapping("/{id_usuario}")
 		public Usuario listaUsuarioUnico(@PathVariable(value = "id_usuario") long id_usuario){
 			
 			return usuarioRepository.findById(id_usuario);
 			
 		}
-		@PostMapping("/usuario")
+		@PostMapping
 		public Usuario salvaUsuario (@RequestBody Usuario usuario) {
 			return usuarioRepository.save(usuario);
 			
 		}
-		@DeleteMapping("/usuario")
+		@DeleteMapping
 		public void deletaUsuario (@RequestBody Usuario usuario) {
 			usuarioRepository.delete(usuario);
 			
 		}
-		@PutMapping("/usuario")
+		@PutMapping("/{id_usuario}")
 		public Usuario alteraUsuario (@RequestBody Usuario usuario) {
 			return usuarioRepository.save(usuario);
 		}

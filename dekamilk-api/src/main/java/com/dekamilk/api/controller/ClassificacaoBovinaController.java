@@ -18,34 +18,34 @@ import com.dekamilk.api.repository.ClassificacaoBovinaRepository;
 
 
 @RestController
-@RequestMapping("/classificacao")
+@RequestMapping("/classificacoes")
 public class ClassificacaoBovinaController {
 
 	
 	@Autowired
 	ClassificacaoBovinaRepository classificacaoRepository;
-	@GetMapping("/classificacoes")
+	@GetMapping
 	public List<ClassificacaoBovina> listarTudo(){
 		return classificacaoRepository.findAll();
 		
 	}
-	@GetMapping("/classificacao/{id_classificacao}")
+	@GetMapping("/{id_classificacao}")
 	public ClassificacaoBovina listaClassificacaoUnica(@PathVariable(value = "id_classificacao") long id_classificacao){
 		
 		return classificacaoRepository.findById(id_classificacao);
 		
 	}
-	@PostMapping("/classificacao")
+	@PostMapping
 	public ClassificacaoBovina salvaClassificacao (@RequestBody ClassificacaoBovina classificacao) {
 		return classificacaoRepository.save(classificacao);
 		
 	}
-	@DeleteMapping("/classificacao")
+	@DeleteMapping
 	public void DeletaClassificacao (@RequestBody ClassificacaoBovina classificacao) {
 		classificacaoRepository.delete(classificacao);
 		
 	}
-	@PutMapping("/fornecedor")
+	@PutMapping("/{id_classificacao}")
 	public ClassificacaoBovina alteraClassificacaor (@RequestBody ClassificacaoBovina classificacao) {
 		return classificacaoRepository.save(classificacao);
 		
