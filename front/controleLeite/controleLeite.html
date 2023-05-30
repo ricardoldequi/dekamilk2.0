@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sistema de gerenciamento leiteiro">
-    <title>DeKamilk - Versão WEB</title>
+    <title>Preco Litro do Leite</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+    <!--TELA PADRÃO-->
     <input type="checkbox" id="check">
     <!--cabecalho começo-->
     <header>
@@ -17,6 +18,9 @@
         <div class="left">
             <h3>DeKa<span>MILK</span></h3>
             <img src="/front/assets/Logo.svg" class="logo">
+        </div>
+        <div class="center">
+            <h4>Preço Litro do Leite</h4>
         </div>
         <div class="right"> 
             <a href="/front/login/login.html" class="btSair">Sair</a>
@@ -29,18 +33,18 @@
             <img src="/front/assets/User.jpg" class="ftUser" alt="FotoUser">
             <h2>Usuário</h2>
         </center>
-        <a href="/front/home/home.html" class="nav__link active"><ion-icon name="desktop-outline" class="icones"></ion-icon><span>Home</span></a>
+        <a href="/front/home/home.html" class="nav__link"><ion-icon name="desktop-outline" class="icones"></ion-icon><span>Home</span></a>
 
         <div class="nav__link colapse"><ion-icon name="create-outline" class="icones"></ion-icon><span>Cadastros</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="/front/clientes/clientes.html" class="collapse__sublink">Clientes</a>
                  <a href="/front/fornecedor/fornecedores.html" class="collapse__sublink">Fornecedores</a>
-                 <a href="/front/operacao/operacao.html" class="collapse__sublink">Operações</a>
+                 <a href="/front/operacoes/operacao.html" class="collapse__sublink">Operações</a>
              </ul>
         </div>
 
-        <div class="nav__link "><ion-icon name="cash-outline" class="icones"></ion-icon><span>Financeiro</span>
+        <div class="nav__link active"><ion-icon name="cash-outline" class="icones"></ion-icon><span>Financeiro</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="/front/financeiroPagar/financeiroPagar.html" class="collapse__sublink">Pagar</a>
@@ -52,7 +56,7 @@
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="/front/controleLeite/controleLeite.html" class="collapse__sublink">Preço do Litro</a>
-                 <a href="/front/animais/animais.html" class="collapse__sublink">Rebanho</a>
+                 <a href="/front/animais/animais.html" class="collapse__sublink">Animais</a>
              </ul>
         </div>
 
@@ -73,6 +77,38 @@
         </div>
     </div>
     <!--barra lateral final-->
+    <!--TELA PADRÃO-->
+    <!--Controle Litro Leite-->
+    <div class="box content">
+        <form action="">
+            
+            <div class="inputBox">
+                <input type="text" autocomplete="off" name="ID" id="ID" class="inputID" required>
+                <label for="ID" class="labelInput">ID</label>
+            </div>
+            <div class="inputBox">
+            </div>
+            <br><br>
+            <div class="inputBox">
+                <input type="text" autocomplete="off" name="data" id="data" class="inputID" required>
+                <label for="dataReceber" class="labelInput">Data</label>
+                
+                <input type="text" autocomplete="off" name="valor" id="valor" class="inputID" required>
+                <label for="valor" name="valor" id="labelvalor" class="labelInput">Valor</label>
+            </div>   
+            <br><br>
+            <div class="inputBox">
+                <input type="text" autocomplete="off" name="cliente" id="cliente" class="inputID" required>
+                <label for="cliente" class="labelInput">Cliente</label>
+            </div>
+            <br><br>
+            <input type="submit" name="btIncluir" id="btIncluir" value="Incluir">
+            <input type="submit" name="btDeletar" id="btDeletar" value="Deletar">
+            <input type="submit" name="btAlterar" id="btAlterar" value="Alterar">
+            <input type="submit" name="btConsultar" id="btConsultar" value="Consultar">
+        </form>
+    </div>
+
     <div class="content"></div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

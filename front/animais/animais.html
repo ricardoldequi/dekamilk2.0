@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sistema de gerenciamento leiteiro">
-    <title>Cadastro de Fornecedores</title>
+    <title>Animais</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
             <img src="/front/assets/Logo.svg" class="logo">
         </div>
         <div class="center">
-            <h4>Cadastro de Fornecedores</h4>
+            <h4>Animais</h4>
         </div>
         <div class="right"> 
             <a href="/front/login/login.html" class="btSair">Sair</a>
@@ -35,7 +35,7 @@
         </center>
         <a href="/front/home/home.html" class="nav__link"><ion-icon name="desktop-outline" class="icones"></ion-icon><span>Home</span></a>
 
-        <div class="nav__link colapse active"><ion-icon name="create-outline" class="icones"></ion-icon><span>Cadastros</span>
+        <div class="nav__link colapse"><ion-icon name="create-outline" class="icones"></ion-icon><span>Cadastros</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="/front/clientes/clientes.html" class="collapse__sublink">Clientes</a>
@@ -44,7 +44,7 @@
              </ul>
         </div>
 
-        <div class="nav__link "><ion-icon name="cash-outline" class="icones"></ion-icon><span>Financeiro</span>
+        <div class="nav__link active"><ion-icon name="cash-outline" class="icones"></ion-icon><span>Financeiro</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="/front/financeiroPagar/financeiroPagar.html" class="collapse__sublink">Pagar</a>
@@ -56,7 +56,7 @@
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="/front/controleLeite/controleLeite.html" class="collapse__sublink">Preço do Litro</a>
-                 <a href="/front/animais/animais.html" class="collapse__sublink">Rebanho</a>
+                 <a href="/front/animais/animais.html" class="collapse__sublink">Animais</a>
              </ul>
         </div>
 
@@ -78,64 +78,87 @@
     </div>
     <!--barra lateral final-->
     <!--TELA PADRÃO-->
-    <!--cadastro de fornecedores-->
+    <!--Controle Litro Leite-->
     <div class="box content">
-        <form id="form-cad-forn" action="">
-            <br>
+        <form action="">
+            
             <div class="inputBox">
-                <input type="text" autocomplete="off" name="nomeFornecedor" id="nomeFornecedor" class="inputFornecedor" required>
-                <label for="nomeFornecedor" class="labelInput">Nome</label>
+                <input type="text" autocomplete="off" name="ID_animal" id="ID_animal" class="inputID_animal" required>
+                <label for="ID_animal" name="labelID_animal" id="labelID_animal" class="labelInput">Animal</label>
+                <a>
+                    <input type="text" autocomplete="off" name="classificacao" id="classificacao" class="inputID_animal" required>
+                    <label for="classificacao" name="labelInput" id="labelclassificacao" class="labelInput">Classificaçao</label>
+                </a>
+                <a>
+                    <input type="text" autocomplete="off" name="raca" id="raca" class="inputID_animal" required>
+                    <label for="raca" name="labelInput" id="labelraca" class="labelInput">Raça</label>
+                </a>
             </div>
+
             <br><br>
             <div class="inputBox">
-                
-                    <input type="radio" name="tipoFornecedor" id="FornecedorPF" value="PF" checked/> <label for="FornecedorPF">Pessoa Física</label>
+                <a>
+                    <input type="text" autocomplete="off" name="nome" id="nome" class="inputID_animal" required>
+                    <label for="nome" name="labelNome" id="labelNome" class="labelInput">Nome Animal</label>
+                </a>
+                <a>    
+                    <input type="text" autocomplete="off" name="brinco" id="brinco" class="inputID_animal" required>
+                    <label for="brinco" name="brinco" id="labelbrinco" class="labelInput">Nº brinco</label>
+                </a>    
+            </div>   
+            <br><br>
+
+            <div class="inputBox">
+                <input type="text" autocomplete="off" name="nomePai" id="nomePai" class="inputID_animal" required>
+                <label for="nomePai" class="labelInput">Nome do Pai</label>
+            </div>
+
+            <br><br>
+            <div class="inputBox">
+                <input type="text" autocomplete="off" name="nomeMae" id="nomeMae" class="inputID_animal" required>
+                <label for="nomeMae" class="labelInput">Nome da Mãe</label>
+            </div>
+
+            <br><br>
+            <div class="inputBox">
+                <input type="text" autocomplete="off" name="ID_animal" id="ID_animal" class="inputID_animal" required>
+                <label for="ID_animal" class="labelInput">Nº de crias</label>
+
+                <a>
+                    <input type="text" autocomplete="off" name="classificacao" id="classificacao" class="inputID_animal" required>
+                    <label for="classificacao" name="labelInput" id="labelclassificacao" class="labelInput">Peso</label>
+                </a>
+
+                <a>
+                    <input type="text" autocomplete="off" name="raca" id="raca" class="inputID_animal" required>
+                    <label for="raca" name="labelInput" id="labelraca" class="labelInput">Data da cria</label>
+                </a>
+            </div>
+
+            <br><br>
+                <div>
+                    <label for="Inseminada" class="Inseminada">Inseminada</label>
                     <br>
-                    <input type="radio" name="tipoFornecedor" id="FornecedorPJ" value="PJ"/> <label for="FornecedorPJ">Pessoa Jurídica</label>
-                
-                
-                    <input type="text" autocomplete="off" name="CPFFornecedor" id="CPFFornecedor" class="inputFornecedor" required>
-                    <label for="CPFFornecedor" name="labelCPFFornecedor" id="labelCPFFornecedor" class="labelInput">CPF/CNPJ</label>
+                    <!-- <div class="radios1"> -->
+                        <input type="radio" name="inseminada" id="inseminadaSim" value="Sim" checked/> <label for="inseminada">Sim</label>
+                        <input type="radio" name="inseminada" id="inseminadaNao" value="Não"/> <label for="inseminada">Não</label>
+                    <!-- <div class="inputBox"> -->
                     <a>
-                        <input type="text" autocomplete="off" name="IEFornecedor" id="IEFornecedor" class="inputFornecedor" required>
-                        <label for="IEFornecedor" name="labelIE" id="labelIE" class="labelInput">Inscrição Estadual</label>
-                    </a>
-                
-            </div>
-            <br><br>
-            <div class="inputBox">
-                <input type="text" autocomplete="off" name="EnderecoFornecedor" id="EnderecoFornecedor" class="inputFornecedor" required>
-                <label for="EnderecoFornecedor" class="labelInput">Endereço</label>
-            </div>
-            <br><br>
-            <div class="inputBox">
-                <input type="text" autocomplete="off" name="CidadeFornecedor" id="CidadeFornecedor" class="inputFornecedor" required>
-                <label for="CidadeFornecedor" class="labelInput">Cidade</label>
-                <a>
-                    <input type="text" autocomplete="off" name="UFFornecedor" id="UFFornecedor" class="inputFornecedor" required>
-                    <label for="UFFornecedor" name="labelUF" id="labelUF" class="labelInput">UF</label>
+                    <label for="Inseminada" class="Inseminada">Lactante</label>
+                    <!-- <div class="radios2"> -->
+                        <input type="radio" name="lactante" id="lactanteSim" value="Sim" checked/> <label for="inseminada">Sim</label>
+                        <input type="radio" name="lactante" id="lactanteNao" value="Não"/> <label for="inseminada">Não</label>
+                    <!-- </div> -->
                 </a>
-                <a>
-                    <input type="text" autocomplete="off" name="CEPFornecedor" id="CEPFornecedor" class="inputFornecedor" required>
-                    <label for="CEPFornecedor" name="labelCEP" id="labelCEP" class="labelInput">CEP</label>
-                </a>
-            </div>
+
+                    <label for="Inseminada" class="Inseminada">Sexo</label>
+                    <!-- <div class="radios3"> -->
+                        <input type="radio" name="sexo" id="sexoM" value="M" checked/> <label for="inseminada">M</label>
+                        <input type="radio" name="sexo" id="senhoF" value="F"/> <label for="inseminada">F</label>
+                    <!-- </div>  -->
+                </div>
             <br><br>
-            <p1>Contato</p1>
-            <br><br>
-            <div class="inputBox">
-                <input type="text" autocomplete="off" name="TelefoneCFornecedor" id="TelefoneCFornecedor" class="inputFornecedor" required>
-                <label for="TelefoneCFornecedor" name="labelTelefoneC" id="labelTelefoneC" class="labelInput">Telefone Celular</label>
-                <a>
-                    <input type="text" autocomplete="off" name="TelefoneFFornecedor" id="TelefoneFFornecedor" class="inputFornecedor" required>
-                    <label for="TelefoneFFornecedor" name="labelTelefoneF" id="labelTelefoneF" class="labelInput">Telefone Fixo</label>
-                </a>
-                <a>
-                    <input type="text" autocomplete="off" name="EmailFornecedor" id="EmailFornecedor" class="inputFornecedor" required>
-                    <label for="EmailFornecedor" name="labelEmail" id="labelEmail" class="labelInput">Email</label>
-                </a>
-            </div>
-            <br><br>
+            
             <input type="submit" name="btIncluir" id="btIncluir" value="Incluir">
             <input type="submit" name="btDeletar" id="btDeletar" value="Deletar">
             <input type="submit" name="btAlterar" id="btAlterar" value="Alterar">
@@ -146,6 +169,6 @@
     <div class="content"></div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src ="main_Fornecedor.js"></script>
+    <script src ="/front/main.js"></script>
 </body>
 </html>
