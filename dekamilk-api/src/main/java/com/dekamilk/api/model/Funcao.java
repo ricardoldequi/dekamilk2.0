@@ -16,7 +16,7 @@ import lombok.Data;
 	public class Funcao {
 
 		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private long id_funcao;
 		
 		@Column(nullable = false)

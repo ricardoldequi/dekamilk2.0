@@ -20,7 +20,7 @@ import lombok.Data;
 public class LancamentoEntrada {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_entrada;
 	
 	@ManyToOne (optional = false,fetch = FetchType.EAGER)

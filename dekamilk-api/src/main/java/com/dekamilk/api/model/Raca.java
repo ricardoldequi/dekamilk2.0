@@ -16,7 +16,7 @@ import lombok.Data;
 	public class Raca {
 
 		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private long id_raca;
 		
 		@Column(nullable = false)

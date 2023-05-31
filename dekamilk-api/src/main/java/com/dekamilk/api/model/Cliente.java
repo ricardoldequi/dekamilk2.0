@@ -14,7 +14,7 @@ package com.dekamilk.api.model;
 	@Table(name = "cliente")
 	public class Cliente {
 		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Long id_cliente;
 		
 		@Column(nullable = false)

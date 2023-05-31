@@ -16,7 +16,7 @@ import jakarta.persistence.GeneratedValue;
 	public class Operacao {
 
 		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private long id_operacao;
 		
 		@Column(nullable = false)

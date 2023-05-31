@@ -19,7 +19,7 @@ import lombok.Data;
 	public class PrecoUnitarioLitro {
 
 		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private long id_preco_unitario;
 		
 		@Column(nullable = false)

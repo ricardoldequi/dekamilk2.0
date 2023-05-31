@@ -24,7 +24,7 @@ import jakarta.persistence.Table;
 	@Table(name = "cadastro_animal")
 	public class CadastroAnimal {
 		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Long id_animal;
 		
 		@ManyToOne (optional = false)

@@ -18,7 +18,7 @@
 
 
 CREATE TABLE cliente (
-	id_cliente Serial,
+	id_cliente Serial not null,
 	nome VARCHAR(60) NOT NULL,
 	cpf VARCHAR(14)UNIQUE DEFAULT '000.000.000-00',
 	cep VARCHAR(9),
@@ -52,7 +52,7 @@ CREATE TABLE fornecedor (
 );
 	
 CREATE TABLE operacao (
-	id_operacao serial,
+	id_operacao serial not null,
 	descricao VARCHAR(300) NOT NULL,
 	tipo VARCHAR(1), -- pode ser "E" de Entrada e "S" de Saida 
 	    CONSTRAINT PK_operacao PRIMARY KEY (id_operacao)
@@ -63,8 +63,8 @@ CREATE TABLE operacao (
 CREATE TABLE lancamento_entrada (
 	id_entrada serial not null,
 	operacao_entrada int NOT NULL,
-	cliente int NOT NULL,
-	valor_recebido DECIMAL(7,2),
+	cliente bigint NOT NULL,
+	valor_recebido double precision not null,
 	descricao_entrada VARCHAR(150),
 	data_entrada DATE NOT NULL,
 		CONSTRAINT PK_id_entrada PRIMARY KEY (id_entrada),
@@ -73,10 +73,10 @@ CREATE TABLE lancamento_entrada (
 );
 
 CREATE TABLE lancamento_saida (
-	id_saida serial not null,
-	operacao_saida int NOT NULL,
-	fornecedor INT NOT NULL,
-	valor_gasto DECIMAL(7,2),
+	id_saida serial not null4,
+	operacao_saida bigint NOT NULL,
+	fornecedor bigint NOT NULL,
+	valor_gasto double precision not null,
 	descricao_saida VARCHAR(90),
 	data_saida DATE NOT NULL,
 	    CONSTRAINT PK_id_saida PRIMARY KEY (id_saida), 
@@ -87,10 +87,10 @@ CREATE TABLE lancamento_saida (
 
 
 CREATE TABLE preco_unitario_litro (
-    id_preco_unitario serial,
-	valor_unitario FLOAT NOT NULL DEFAULT '0.00',
+    id_preco_unitario serial not null,
+	valor_unitario numeric (38, 2) NOT NULL,
 	data_recebida DATE NOT NULL,
-	cliente INT NOT NULL,
+	cliente bigint NOT NULL,
 		CONSTRAINT PK_id_preco_unitario PRIMARY KEY (id_preco_unitario),
 			CONSTRAINT FK_cliente FOREIGN KEY (cliente) REFERENCES cliente(id_cliente)
 );
@@ -115,11 +115,11 @@ CREATE TABLE usuario (
 
 );
 CREATE TABLE classificacao_bovina( --basia-se na declaracao anual de rebanho obrigatoria lei estadual n13.467/2010
-	id_cassificacao SERIAL,
+	id_classificacao SERIAL not null,
 	nome varchar (35) not null,
 	sexo varchar(1), -- 'F' ou 'M'
 
-		CONSTRAINT PK_id_classificacao PRIMARY KEY (id_cassificacao)
+		CONSTRAINT PK_id_classificacao PRIMARY KEY (id_classificacao)
 );
 CREATE TABLE raca(
 	id_raca SERIAL not null,
@@ -131,20 +131,20 @@ CREATE TABLE raca(
 
 create table cadastro_animal(
 	id_animal serial not null,
-	id_classificacao int not null,
-	id_raca int not null,
-	numero_brinco  int not null,
+	id_classificacao bigint not null,
+	id_raca bigint not null,
+	numero_brinco  integer not null,
 	nome varchar (15) not null,
 	nome_pai varchar (15),
 	nome_mae varchar (15),
-	inseminada boolean not null,
+	inseminada boolean,
 	lactante varchar(1),
-	numero_crias int,
-	peso float,
+	numero_crias integer,
+	peso numeric(38, 2),
 	sexo varchar(1),
 	data_cria date,
 		CONSTRAINT PK_id_animal PRIMARY KEY (id_animal),
-       		CONSTRAINT FK_id_cassificacao FOREIGN KEY (id_cassificacao) REFERENCES classificacao_bovina(id_cassificacao),
+       		CONSTRAINT FK_id_classificacao FOREIGN KEY (id_classificacao) REFERENCES classificacao_bovina(id_classificacao),
             CONSTRAINT FK_id_raca FOREIGN KEY (id_raca) REFERENCES raca(id_raca)
 
 	

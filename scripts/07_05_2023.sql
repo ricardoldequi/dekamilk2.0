@@ -13,14 +13,11 @@
     IS_TEMPLATE = False;
 */	
 
-CREATE TYPE sexo AS ENUM ('M', 'F');
-CREATE TYPE afirmacao AS ENUM ('S', 'N');
-CREATE TYPE tipo AS ENUM ('E', 'S');
 
 
 
 
-CREATE TABLE Cliente (
+CREATE TABLE cliente (
 	id_cliente Serial,
 	nome VARCHAR(60) NOT NULL,
 	cpf VARCHAR(14)UNIQUE DEFAULT '000.000.000-00',
@@ -71,7 +68,7 @@ CREATE TABLE LancamentoEntrada (
 	descricao_entrada VARCHAR(150),
 	data_entrada DATE NOT NULL,
 		CONSTRAINT PK_id_entrada PRIMARY KEY (id_entrada),
-			CONSTRAINT FK_cliente_entrada FOREIGN KEY (Cliente) REFERENCES Cliente(id_cliente), 
+			CONSTRAINT FK_cliente FOREIGN KEY (cliente) REFERENCES Cliente(id_cliente), 
 			CONSTRAINT FK_operacao_entrada FOREIGN KEY (operacao_entrada) REFERENCES Operacao(id_operacao)
 );
 
@@ -83,7 +80,7 @@ CREATE TABLE LancamentoSaida (
 	descricao_saida VARCHAR(90),
 	data_saida DATE NOT NULL,
 	    CONSTRAINT PK_Lancamento_Saida PRIMARY KEY (lancamento_saida), 
-			CONSTRAINT FK_fornecedor_saida FOREIGN KEY (Fornecedor) REFERENCES Fornecedor(id_fornecedor),
+			CONSTRAINT FK_fornecedor FOREIGN KEY (fornecedor) REFERENCES Fornecedor(id_fornecedor),
 			CONSTRAINT FK_operacao_saida FOREIGN KEY (operacao_saida) REFERENCES Operacao(id_operacao)
 
 );
@@ -118,7 +115,7 @@ CREATE TABLE Usuario (
 
 );
 CREATE TABLE ClassificacaoBovina( --basia-se na declaracao anual de rebanho obrigatoria lei estadual n13.467/2010
-	id_cassificacao SERIAL not null,
+	id_cassificacao SERIAL,
 	nome varchar (35) not null,
 	sexo sexo,
 
@@ -175,7 +172,7 @@ INSERT INTO Operacao( Descricao, Tipo)VALUES
  ( 1,1,54000.50,'venda  de 5320 litros', '2023-05-01'),
  (2,1,4500.00,'venda novilha brinco 439', '2023-04-04');
  
- INSERT INTO LancamentoSaida (operacao_saida, Fornecedor, valor_gasto, descricao_saida, data_saida) VALUES
+ INSERT INTO LancamentoSaida (operacao_saida, fornecedor, valor_gasto, descricao_saida, data_saida) VALUES
 (3,1,450.00,'Compra Ivomec', '2023-05-02'),
 (4,1, 4500.00, 'Ração crescimento', '2023-04-13');
 
