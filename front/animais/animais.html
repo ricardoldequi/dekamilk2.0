@@ -44,7 +44,7 @@
              </ul>
         </div>
 
-        <div class="nav__link active"><ion-icon name="cash-outline" class="icones"></ion-icon><span>Financeiro</span>
+        <div class="nav__link "><ion-icon name="cash-outline" class="icones"></ion-icon><span>Financeiro</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="/front/financeiroPagar/financeiroPagar.html" class="collapse__sublink">Pagar</a>
@@ -52,7 +52,7 @@
              </ul>
         </div>
 
-        <div class="nav__link "><ion-icon name="flask-outline" class="icones"></ion-icon><span>Controle</span>
+        <div class="nav__link active"><ion-icon name="flask-outline" class="icones"></ion-icon><span>Controle</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="/front/controleLeite/controleLeite.html" class="collapse__sublink">Preço do Litro</a>
@@ -83,15 +83,11 @@
         <form action="">
             
             <div class="inputBox">
-                <input type="text" autocomplete="off" name="ID_animal" id="ID_animal" class="inputID_animal" required>
-                <label for="ID_animal" name="labelID_animal" id="labelID_animal" class="labelInput">Animal</label>
-                <a>
-                    <input type="text" autocomplete="off" name="classificacao" id="classificacao" class="inputID_animal" required>
-                    <label for="classificacao" name="labelInput" id="labelclassificacao" class="labelInput">Classificaçao</label>
-                </a>
+                <input type="text" autocomplete="off" name="animalClassificacao" id="animalClassificacao" class="inputID_animal" required>
+                <label for="animalClassificacao" name="labelAnimalClassificacao" id="labelAnimalClassificacao" class="labelInput">Classificação</label>
                 <a>
                     <input type="text" autocomplete="off" name="raca" id="raca" class="inputID_animal" required>
-                    <label for="raca" name="labelInput" id="labelraca" class="labelInput">Raça</label>
+                    <label for="raca" name="labelraca" id="labelraca" class="labelInput">Raça</label>
                 </a>
             </div>
 
@@ -103,7 +99,7 @@
                 </a>
                 <a>    
                     <input type="text" autocomplete="off" name="brinco" id="brinco" class="inputID_animal" required>
-                    <label for="brinco" name="brinco" id="labelbrinco" class="labelInput">Nº brinco</label>
+                    <label for="brinco" name="labelbrinco" id="labelbrinco" class="labelInput">Nº brinco</label>
                 </a>    
             </div>   
             <br><br>
@@ -121,41 +117,44 @@
 
             <br><br>
             <div class="inputBox">
-                <input type="text" autocomplete="off" name="ID_animal" id="ID_animal" class="inputID_animal" required>
-                <label for="ID_animal" class="labelInput">Nº de crias</label>
-
+                <input type="text" autocomplete="off" name="peso" id="peso" class="inputID_animal" required>
+                <label for="peso" name="labelPeso" id="labelPeso" class="labelInput">Peso</label>
+                
+                <p1>Crias</p1>
                 <a>
-                    <input type="text" autocomplete="off" name="classificacao" id="classificacao" class="inputID_animal" required>
-                    <label for="classificacao" name="labelInput" id="labelclassificacao" class="labelInput">Peso</label>
+                    <input type="text" autocomplete="off" name="nCrias" id="nCrias" class="inputID_animal" required>
+                    <label for="nCrias" name="labelNCrias" id="labelNCrias" class="labelInput">Nº de crias</label>
                 </a>
 
                 <a>
-                    <input type="text" autocomplete="off" name="raca" id="raca" class="inputID_animal" required>
-                    <label for="raca" name="labelInput" id="labelraca" class="labelInput">Data da cria</label>
+                    <input type="text" autocomplete="off" name="dataCria" id="dataCria" class="inputID_animal" required>
+                    <label for="dataCria" name="labelDataCria" id="labelDataCria" class="labelInput">Data da cria</label>
                 </a>
             </div>
 
             <br><br>
-                <div>
-                    <label for="Inseminada" class="Inseminada">Inseminada</label>
-                    <br>
-                    <!-- <div class="radios1"> -->
-                        <input type="radio" name="inseminada" id="inseminadaSim" value="Sim" checked/> <label for="inseminada">Sim</label>
-                        <input type="radio" name="inseminada" id="inseminadaNao" value="Não"/> <label for="inseminada">Não</label>
-                    <!-- <div class="inputBox"> -->
-                    <a>
-                    <label for="Inseminada" class="Inseminada">Lactante</label>
-                    <!-- <div class="radios2"> -->
-                        <input type="radio" name="lactante" id="lactanteSim" value="Sim" checked/> <label for="inseminada">Sim</label>
-                        <input type="radio" name="lactante" id="lactanteNao" value="Não"/> <label for="inseminada">Não</label>
-                    <!-- </div> -->
-                </a>
-
-                    <label for="Inseminada" class="Inseminada">Sexo</label>
-                    <!-- <div class="radios3"> -->
-                        <input type="radio" name="sexo" id="sexoM" value="M" checked/> <label for="inseminada">M</label>
-                        <input type="radio" name="sexo" id="senhoF" value="F"/> <label for="inseminada">F</label>
-                    <!-- </div>  -->
+                <div class="radios">
+                    <div class="inseminadas">
+                        <p2>Inseminada</p2>
+                        <div>
+                            <input type="radio" name="inseminada" id="inseminadaSim" value="Sim" checked/> <label for="inseminada">Sim</label>
+                            <input type="radio" name="inseminada" id="inseminadaNao" value="Não"/> <label for="inseminada">Não</label>
+                        </div>
+                    </div>
+                    <div class="lactante">
+                        <p3>Lactante</p3>
+                        <div class="inp-lactante">
+                            <input type="radio" name="lactante" id="lactanteSim" value="Sim" checked/> <label for="inseminada">Sim</label>
+                            <input type="radio" name="lactante" id="lactanteNao" value="Não"/> <label for="inseminada">Não</label>
+                        </div>
+                    </div>
+                    <div class="sexo">
+                        <p4>Sexo</p4>
+                        <div class="inp-sexo">
+                            <input type="radio" name="sexo" id="sexoM" value="M" checked/> <label for="inseminada">M</label>
+                            <input type="radio" name="sexo" id="sexoF" value="F"/> <label for="inseminada">F</label>
+                        </div>
+                    </div>
                 </div>
             <br><br>
             

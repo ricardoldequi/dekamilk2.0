@@ -308,43 +308,36 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
     left: 94px;
 }
 
-#classificacao{
+#animalClassificacao{
     width: 215px;
     height: 45px;
-    transform: translate(75px, 0px);
-}
-
-#labelclassificacao{
-    padding-left: 278px;
-    padding-top: 0px;
-}
-
-#labelraca{
-    padding-left: 555px;
-    padding-top: 0px;
 }
 
 #raca {
     width: 215px;
     height: 45px;
     left: 94px;
-    transform: translate(130px, 0px);
+    transform: translate(340px, 0px);
 }
 
+#labelraca{
+    padding-left: 560px;
+    padding-top: 0px;
+}
 
 #nome {
-    width: 495px;
+    width: 519px;
     height: 45px;
 }
 
 #brinco{
-    width: 215px;
+    width: 200px;
     height: 45px;
-    transform: translate(56px, 0px);
+    transform: translate(53px, 0px);
 }
 
 #labelbrinco {
-    padding-left: 556px;
+    padding-left: 578px;
 }
 
 #nomePai {
@@ -352,17 +345,75 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
     height: 45px;
 }
 
-.radios {
-    padding: 5px;
-    font-size: 19px;
-    height: 20px;
+#peso{
+    width: 200px;
+    height: 45px;
 }
 
-.labelInseminada {
-    pointer-events: none;
-    font-size: 18px;
-    color: #000;
+p1{
+    padding-left: 200px;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
 }
+
+#nCrias{
+    width: 140px;
+    height: 45px;
+    transform: translate(19px, 0px);
+}
+
+#labelNCrias{
+    padding-left: 478px;
+}
+
+#dataCria{
+    width: 140px;
+    height: 45px;
+    transform: translate(30px, 0px);
+}
+
+#labelDataCria{
+    padding-left: 633px;
+}
+
+p2{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+p3{
+    padding-left: 100px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+p4{
+    padding-left: 100px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.radios{
+    display: flex;
+}
+
+.inseminadas, 
+.lactante,
+.sexo{
+    display: flex;
+    flex-direction: column;
+}
+
+.inp-lactante, .inp-sexo{
+    margin-left: 100px;
+}
+
+/*botoes*/
 
 #btIncluir {
     width: 100px;
