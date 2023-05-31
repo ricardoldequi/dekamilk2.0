@@ -14,7 +14,7 @@ import lombok.Data;
 public class Fornecedor {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_fornecedor;
 	
 	@Column(nullable = false)

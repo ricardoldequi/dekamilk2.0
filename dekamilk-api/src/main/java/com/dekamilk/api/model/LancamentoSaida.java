@@ -5,7 +5,7 @@ import java.sql.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -20,14 +20,14 @@ import lombok.Data;
 public class LancamentoSaida {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_saida;
 	
-	@ManyToOne (optional = false)
+	@ManyToOne (optional = false,fetch = FetchType.EAGER)
 	@JoinColumn(name = "operacao_saida", referencedColumnName =  "id_operacao")
 	private Operacao operacao_saida;
 	
-	@ManyToOne (optional = false)
+	@ManyToOne (optional = false,fetch = FetchType.EAGER)
 	@JoinColumn(name = "fornecedor", referencedColumnName ="id_fornecedor")
 	private Fornecedor fornecedor;
 	

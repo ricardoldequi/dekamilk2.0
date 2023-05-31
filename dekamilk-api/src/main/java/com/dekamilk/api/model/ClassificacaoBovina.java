@@ -15,7 +15,7 @@ package com.dekamilk.api.model;
 	@Table(name = "classificacao_bovina")
 	public class ClassificacaoBovina {
 		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Long id_classificacao;
 		
 		@Column(nullable = false)
