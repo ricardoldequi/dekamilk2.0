@@ -59,8 +59,8 @@ import jakarta.persistence.Table;
 		@Column
 		private BigDecimal peso;
 
-		@Enumerated(EnumType.STRING)
-		private Sexo sexo;
+		@Column
+		private String sexo;
 
 		@Column
 		private Date data_cria;

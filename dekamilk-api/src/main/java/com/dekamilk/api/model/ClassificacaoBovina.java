@@ -20,8 +20,6 @@ package com.dekamilk.api.model;
 		
 		@Column(nullable = false)
 		private String nome;
-		
-		@Column
-		    private  String sexo;
+	
 	}
 		
