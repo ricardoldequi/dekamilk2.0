@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sistema de gerenciamento leiteiro">
-    <title>Perfil de Usuário</title>
+    <title>Permissões de Acesso</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
             <img src="/front/assets/Logo.svg" class="logo">
         </div>
         <div class="center">
-            <h4>Perfil de Usuário</h4>
+            <h4>Permissões de Acesso</h4>
         </div>
         <div class="right"> 
             <a href="/front/login/login.html" class="btSair">Sair</a>
@@ -44,7 +44,7 @@
              </ul>
         </div>
 
-        <div class="nav__link active"><ion-icon name="cash-outline" class="icones"></ion-icon><span>Financeiro</span>
+        <div class="nav__link "><ion-icon name="cash-outline" class="icones"></ion-icon><span>Financeiro</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="/front/financeiroPagar/financeiroPagar.html" class="collapse__sublink">Pagar</a>
@@ -55,9 +55,8 @@
         <div class="nav__link "><ion-icon name="flask-outline" class="icones"></ion-icon><span>Controle</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
-                 <a href="#" class="collapse__sublink">Preço do Litro</a>
-                 <a href="#" class="collapse__sublink">Animais</a>
-                 <a href="#" class="collapse__sublink">Medicamentos</a>
+                 <a href="/front/controleLeite/controleLeite.html" class="collapse__sublink">Preço do Litro</a>
+                 <a href="/front/animais/animais.html" class="collapse__sublink">Rebanho</a>
              </ul>
         </div>
 
@@ -69,24 +68,31 @@
              </ul>
         </div>
 
-        <div class="nav__link "><ion-icon name="finger-print-outline" class="icones"></ion-icon><span>Segurança</span>
+        <div class="nav__link active"><ion-icon name="finger-print-outline" class="icones"></ion-icon><span>Segurança</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
-                 <a href="#" class="collapse__sublink">Permissões de Acesso</a>
-                 <a href="#" class="collapse__sublink">Usuários</a>
+                 <a href="/front/segurancaPerfils/segurancaPerfils.html" class="collapse__sublink">Permissões de Acesso</a>
+                 <a href="/front/segurancaUsuarios/segurancaUsuarios.html" class="collapse__sublink">Usuários</a>
              </ul>
         </div>
     </div>
     <!--barra lateral final-->
     <!--TELA PADRÃO-->
-    <!--Pagamentos-->
+    <!--cadastro de fornecedores-->
     <div class="box content">
         <form action="">
-            
+            <br>
+            <br><br>
             <div class="inputBox">
-                <input type="text" autocomplete="off" name="operacao" id="operacao" class="inputPagar" required>
-                <label for="operacao" class="labelInput">Operação</label>
+                <input type="text" autocomplete="off" name="nome" id="nome" class="inputOperacao" required>
+                <label for="nome" class="labelInput">Nome</label>
+            </div>
 
+            <br><br>
+            <input type="submit" name="btIncluir" id="btIncluir" value="Incluir">
+            <input type="submit" name="btDeletar" id="btDeletar" value="Deletar">
+            <input type="submit" name="btAlterar" id="btAlterar" value="Alterar">
+            <input type="submit" name="btConsultar" id="btConsultar" value="Consultar">
         </form>
     </div>
 
