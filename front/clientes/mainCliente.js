@@ -54,19 +54,20 @@ form.addEventListener('submit', function(event) {
   const cliente = {
     nome: nomeCliente,
     cpf: cpfCliente,
+    cnpj: null,
     ie: ieCliente,
     endereco: enderecoCliente,
     cidade: cidadeCliente,
     uf: ufCliente,
     cep: cepCliente,
+    bairro: 'tres vendas',
     telefone: telefoneCliente,
-    telefoneFixo: telefoneFCliente,
+    telefone_fixo: telefoneFCliente,
     email: emailCliente
   };
 
   // Enviar os dados do cliente para o servidor usando fetch
-  fetch('http://localhost:8080/cliente/clientes', {
-    mode: "no-cors",
+  fetch('http://localhost:8080/clientes', {
     method: 'POST', // Ou 'PUT', 'GET', 'DELETE', dependendo da sua necessidade
     headers: {
       'Content-Type': 'application/json'

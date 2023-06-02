@@ -37,7 +37,7 @@ document.getElementById('btIncluir').addEventListener('click', function(event) {
 
   // Obtém os valores dos campos de entrada
   var nomeFornecedor = document.getElementById('nomeFornecedor').value;
-  /*var tipoFornecedor = document.querySelector('input[name="tipoFornecedor"]:checked').value;
+  var tipoFornecedor = document.querySelector('input[name="tipoFornecedor"]:checked').value;
   var CPFFornecedor = document.getElementById('CPFFornecedor').value;
   var IEFornecedor = document.getElementById('IEFornecedor').value;
   var enderecoFornecedor = document.getElementById('EnderecoFornecedor').value;
@@ -46,12 +46,12 @@ document.getElementById('btIncluir').addEventListener('click', function(event) {
   var CEPFornecedor = document.getElementById('CEPFornecedor').value;
   var telefoneCFornecedor = document.getElementById('TelefoneCFornecedor').value;
   var telefoneFFornecedor = document.getElementById('TelefoneFFornecedor').value;
-  var emailFornecedor = document.getElementById('EmailFornecedor').value;*/
+  var emailFornecedor = document.getElementById('EmailFornecedor').value;
 
   // Cria um objeto com os dados do fornecedor
   var fornecedor = {
     nome: nomeFornecedor,
-    /*tipo: tipoFornecedor,
+    tipo: tipoFornecedor,
     cpf_cnpj: CPFFornecedor,
     inscricao_estadual: IEFornecedor,
     endereco: enderecoFornecedor,
@@ -60,7 +60,7 @@ document.getElementById('btIncluir').addEventListener('click', function(event) {
     cep: CEPFornecedor,
     telefone_celular: telefoneCFornecedor,
     telefone_fixo: telefoneFFornecedor,
-    email: emailFornecedor*/
+    email: emailFornecedor
   };
 
   // Realiza a requisição fetch
