@@ -1,0 +1,47 @@
+package com.dekamilk.api.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.dekamilk.api.model.LancamentoSaida;
+import com.dekamilk.api.repository.LancamentoSaidaRepository;
+
+
+
+public class LancamentoSaidaController {
+	@Autowired
+	LancamentoSaidaRepository lancSaidaRepository;
+	@GetMapping("/Lancamentos_saida")
+	public List<LancamentoSaida> listarTudo(){
+		return lancSaidaRepository.findAll();
+		
+	}
+	@GetMapping("/Lancamento_saida/{id_saida}")
+	public LancamentoSaida listaFornecedorUnico(@PathVariable(value = "id_entrada") long id_entrada){
+		
+		return lancSaidaRepository.findById(id_entrada);
+		
+	}
+	@PostMapping("/Lancamento_entrada")
+	public LancamentoSaida salvaFornecedor (@RequestBody LancamentoSaida saida) {
+		return lancSaidaRepository.save(saida);
+		
+	}
+	@DeleteMapping("/Lancamento_entrada")
+	public void DeletaFornecedor (@RequestBody LancamentoSaida saida) {
+		lancSaidaRepository.delete(saida);
+		
+	}
+	@PutMapping("/Lancamento_entrada")
+	public LancamentoSaida alteraFornecedor (@RequestBody LancamentoSaida saida) {
+		return lancSaidaRepository.save(saida);
+		
+	}
+}

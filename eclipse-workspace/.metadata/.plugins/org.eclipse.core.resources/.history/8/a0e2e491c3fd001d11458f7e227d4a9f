@@ -1,0 +1,49 @@
+package com.dekamilk.api.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.dekamilk.api.model.CadastroAnimal;
+import com.dekamilk.api.repository.CadastroAnimalRepository;
+
+
+	@RestController
+	@RequestMapping("/cadastro")
+	public class CadastroAnimalController {
+		@Autowired
+		CadastroAnimalRepository animalRepository;
+		@GetMapping("/cadastros")
+		public List<CadastroAnimal> listarTudo(){
+			return animalRepository.findAll();
+			
+		}
+		@GetMapping("/cadastroAnimal/{id_animal}")
+		public CadastroAnimal listaUsuarioUnico(@PathVariable(value = "id_animal") long id_animal){
+			
+			return animalRepository.findById(id_animal);
+			
+		}
+		@PostMapping("/cadastroAnimal")
+		public CadastroAnimal salvaUsuario (@RequestBody CadastroAnimal animal) {
+			return animalRepository.save(animal);
+			
+		}
+		@DeleteMapping("/cadastroAnimal")
+		public void deletaUsuario (@RequestBody CadastroAnimal animal) {
+			animalRepository.delete(animal);
+			
+		}
+		@PutMapping("/cadastroAnimal")
+		public CadastroAnimal alteraUsuario (@RequestBody CadastroAnimal animal) {
+			return animalRepository.save(animal);
+		}
+		}

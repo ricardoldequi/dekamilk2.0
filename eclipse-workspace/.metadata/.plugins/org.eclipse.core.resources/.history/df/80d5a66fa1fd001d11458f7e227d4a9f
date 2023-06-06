@@ -1,0 +1,40 @@
+
+	package com.dekamilk.api.model;
+
+	import jakarta.persistence.Column;
+	import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+	import jakarta.persistence.GenerationType;
+	import jakarta.persistence.Id;
+	import jakarta.persistence.Table;
+	import lombok.Data;
+public enum tipoOperacao{
+	E,
+	S
+}
+	@Entity
+	@Data
+	@Table(name = "Operacao")
+	public class Operacao {
+
+		@Id
+		@GeneratedValue(strategy = GenerationType.AUTO)
+		private long id_operacao;
+		
+		@Column(nullable = false)
+		private String descricao;
+		
+		@Column
+		private String cpf;
+
+	    @Enumerated(EnumType.STRING)
+	    private tipoOperacao tipo;
+	    
+
+		
+		
+	}
+
+
