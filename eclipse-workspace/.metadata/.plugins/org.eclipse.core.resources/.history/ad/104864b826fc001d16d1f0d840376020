@@ -1,0 +1,5 @@
+package com.dekamilk.api.model;
+
+public class Cliente {
+
+}

@@ -1,0 +1,46 @@
+package com.dekamilk.api.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.dekamilk.api.model.LancamentoEntrada;
+import com.dekamilk.api.repository.LancamentoEntradaRepository;
+
+
+public class LancamentoEntradaController {
+	@Autowired
+	LancamentoEntradaRepository lancEntradaRepository;
+	@GetMapping("/Lancamentos_entrada")
+	public List<LancamentoEntrada> listarTudo(){
+		return lancEntradaRepository.findAll();
+		
+	}
+	@GetMapping("/Lancamento_entrada/{id_entrada}")
+	public LancamentoEntrada listaFornecedorUnico(@PathVariable(value = "id_entrada") long id_entrada){
+		
+		return lancEntradaRepository.findById(id_entrada);
+		
+	}
+	@PostMapping("/Lancamento_entrada")
+	public LancamentoEntrada salvaFornecedor (@RequestBody LancamentoEntrada entrada) {
+		return lancEntradaRepository.save(entrada);
+		
+	}
+	@DeleteMapping("/Lancamento_entrada")
+	public void DeletaFornecedor (@RequestBody LancamentoEntrada entrada) {
+		lancEntradaRepository.delete(entrada);
+		
+	}
+	@PutMapping("/Lancamento_entrada")
+	public LancamentoEntrada alteraFornecedor (@RequestBody LancamentoEntrada entrada) {
+		return lancEntradaRepository.save(entrada);
+		
+	}
+}
