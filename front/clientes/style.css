@@ -436,7 +436,7 @@ p1 {
 }
 
 #btConsultar {
-    width: 150px;
+    width: 120px;
     background: #4173AB;
     border-radius: 5px;
     border: none;
@@ -445,8 +445,45 @@ p1 {
     font-size: 18px;
     cursor: pointer;
     float: right;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #btConsultar:hover{
+    background: #3d638f;
+}
+
+.boxInicia{
+    position:absolute;
+    top: 11%;
+    left: 52%;
+    background-color: #DCE3ED;
+    padding: 15px;
+    width: 800px;
+    height: 612px;
+    transition: 0.5s;
+}
+
+#btNovo {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #4173AB;
+    border-radius: 50%;
+    border: none;
+    color: #fff;
+    font-size: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    float: right;
+    margin-top: 720px;
+    margin-right: 0px;
+}
+
+#btNovo:hover{
     background: #3d638f;
 }

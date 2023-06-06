@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sistema de gerenciamento leiteiro">
-    <title>Usuários</title>
+    <title>Cadastro de Clientes</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
             <img src="/front/assets/Logo.svg" class="logo">
         </div>
         <div class="center">
-            <h4>Usuários</h4>
+            <h4>Cadastro de Clientes</h4>
         </div>
         <div class="right"> 
             <a href="/front/login/login.html" class="btSair">Sair</a>
@@ -35,7 +35,7 @@
         </center>
         <a href="/front/home/home.html" class="nav__link"><ion-icon name="desktop-outline" class="icones"></ion-icon><span>Home</span></a>
 
-        <div class="nav__link colapse"><ion-icon name="create-outline" class="icones"></ion-icon><span>Cadastros</span>
+        <div class="nav__link colapse active"><ion-icon name="create-outline" class="icones"></ion-icon><span>Cadastros</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="/front/clientes/clientesInicia.html" class="collapse__sublink">Clientes</a>
@@ -56,19 +56,19 @@
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="/front/controleLeite/controleLeite.html" class="collapse__sublink">Preço do Litro</a>
-                 <a href="/front/animais/animais.html" class="collapse__sublink">Animais</a>
+                 <a href="/front/animais/animais.html" class="collapse__sublink">Rebanho</a>
              </ul>
         </div>
 
         <div class="nav__link "><ion-icon name="newspaper-outline" class="icones"></ion-icon><span>Relatórios</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
-                 <a href="#" class="collapse__sublink">Receitas</a>
+                 <a href="" class="collapse__sublink">Receitas</a>
                  <a href="#" class="collapse__sublink">Despesas</a>
              </ul>
         </div>
 
-        <div class="nav__link active"><ion-icon name="finger-print-outline" class="icones"></ion-icon><span>Segurança</span>
+        <div class="nav__link "><ion-icon name="finger-print-outline" class="icones"></ion-icon><span>Segurança</span>
             <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
              <ul class="collapse__menu">
                  <a href="/front/segurancaPerfils/segurancaPerfils.html" class="collapse__sublink">Permissões de Acesso</a>
@@ -78,59 +78,14 @@
     </div>
     <!--barra lateral final-->
     <!--TELA PADRÃO-->
-    <!--Segurança Usuários-->
-    <div class="box content">
-        <form action="">
-            
-            <br><br>
-            <div class="inputBox">
-                <input type="text" autocomplete="off" name="nomeUsuario" id="nomeUsuario" class="inputnomeUsuario" required>
-                <label for="nomeUsuario" name="labelnomeUsuario" id="labelnomeUsuario" class="labelInput">Usuário</label>
-            </div>
-
-            <br><br>
-            <div class="inputBox">
-                <a>
-                    <input type="text" autocomplete="off" name="senha" id="senha" class="inputnomeUsuario" required>
-                    <label for="senha" name="labelsenha" id="labelsenha" class="labelInput">Senha</label>
-                </a>
-                <a>    
-                    <input type="text" autocomplete="off" name="cpf" id="cpf" class="inputnomeUsuario" required>
-                    <label for="cpf" name="labelcpf" id="labelcpf" class="labelInput">CPF</label>
-                </a>    
-            </div>   
-            <br><br>
-
-            <div class="inputBox">
-                <input type="text" autocomplete="off" name="email" id="email" class="inputnomeUsuario" required>
-                <label for="email" name="labelemail" id="labelemail" class="labelInput">E-mail</label>
-            </div>
-
-            <br><br>
-
-            <div class="inputBox">
-                    <a>
-                        <input type="text" autocomplete="off" name="telefone" id="telefone" class="inputnomeUsuario" required>
-                        <label for="telefone" name="labeltelefone" id="labeltelefone" class="labelInput">Telefone</label>
-                    </a>
-                    <a>    
-                        <input type="text" autocomplete="off" name="funcao" id="funcao" class="inputnomeUsuario" required>
-                        <label for="funcao" name="labelfuncao" id="labelfuncao" class="labelInput">Função</object></label>
-                    </a> 
-            </div>
-
-            <br><br>
-            
-            <input type="submit" name="btIncluir" id="btIncluir" value="Incluir">
-            <input type="submit" name="btDeletar" id="btDeletar" value="Deletar">
-            <input type="submit" name="btAlterar" id="btAlterar" value="Alterar">
-            <input type="submit" name="btConsultar" id="btConsultar" value="Consultar">
-        </form>
+    <!--cadastro de clientes-->
+    <div class="boxInicia content">
+        <a href="/front/clientes/clientes.html" type="submit" name="btNovo" id="btNovo" value="+">+</a>
     </div>
 
     <div class="content"></div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src ="/front/main.js"></script>
+    <script src ="mainCliente.js"></script>
 </body>
 </html>
