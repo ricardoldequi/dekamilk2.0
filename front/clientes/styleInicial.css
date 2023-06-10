@@ -249,9 +249,9 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
     top: 10%;
     left: 17%;
     background-color: transparent;
-    padding: 15px; 
-    height: 80%;
-    width: 89%;
+    /* padding: 15px;  */
+    /* height: 70%; */
+    /* width: 70%; */
     transition: 0.5s;
 }
 
@@ -279,27 +279,28 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
 
 table {
     border-collapse: collapse;
-    width: 85%;
+    width: 93%;
 }
 
 /* Estilo para as células da tabela */
 th,
 td {
-    padding: 8px; /* Espaçamento interno das células */
+    padding: 12px; /* Espaçamento interno das células */
     text-align: left;
-    border-bottom: 1px solid #ddd;
-    top: 10%;
-    left: 17%;
+    border-bottom: 1px solid #4173AB;
+    /* top: 10%;
+    left: 17%; */
 }
 
 /* Estilo para as células do cabeçalho */
 th {
-    background-color: #f2f2f2;
+    background-color: #4173AB;
+    color: #fff;
 }
 
 /* Estilos gerais da tabela */
 #tabelaClientes {
-    background-color: #fff;
+    background-color: #ebe8e8;
     width: 100%;
     margin-top: 20px;
   }
