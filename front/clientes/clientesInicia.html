@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sistema de gerenciamento leiteiro">
     <title>Cadastro de Clientes</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="styleInicial.css">
 </head>
 <body>
     <!--TELA PADRÃO-->
@@ -81,6 +81,93 @@
     <!--cadastro de clientes-->
     <div class="boxInicia content">
         <a href="/front/clientes/clientes.html" type="submit" name="btNovo" id="btNovo" value="+">+</a>
+    
+        <div id="tabelaClientes">
+            <table id="clientesTable">
+              <thead>
+                <tr class="titles">
+                  <th>Nome</th>
+                  <th>CPF</th>
+                  <th>Endereço</th>
+                  <th>Cidade</th>
+                  <th>UF</th>
+                  <th>CEP</th>
+                  <th>Telefone</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Linhas da tabela serão adicionadas aqui via JavaScript -->
+              </tbody>
+            </table>
+        </div>
+          
+
+        <script>
+            // Função para buscar e exibir os dados dos clientes
+            function exibirClientes() {
+                fetch('http://localhost:8080/clientes', {
+                method: 'GET'
+                })
+                .then(function(response) {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Erro ao buscar os clientes do banco de dados.');
+                }
+                })
+                .then(function(clientes) {
+                const tabelaClientes = document.getElementById('tabelaClientes');
+
+                // Criar a tabela
+                const table = document.createElement('table');
+                table.classList.add('cliente-table');
+
+                // Cabeçalho da tabela
+                const thead = document.createElement('thead');
+                const trHeader = document.createElement('tr');
+                const headers = ['Nome', 'CPF', 'Endereço', 'Cidade', 'UF', 'CEP', 'Telefone', 'Email'];
+
+                headers.forEach(function(header) {
+                    const th = document.createElement('th');
+                    th.textContent = header;
+                    trHeader.appendChild(th);
+                });
+
+                thead.appendChild(trHeader);
+                table.appendChild(thead);
+
+                // Corpo da tabela
+                const tbody = document.createElement('tbody');
+
+                clientes.forEach(function(cliente) {
+                    const tr = document.createElement('tr');
+                    const data = [cliente.nome, cliente.cpf, cliente.endereco, cliente.cidade, cliente.uf, cliente.cep, cliente.telefone, cliente.email];
+
+                    data.forEach(function(value) {
+                    const td = document.createElement('td');
+                    td.textContent = value;
+                    tr.appendChild(td);
+                    });
+
+                    tbody.appendChild(tr);
+                });
+
+                table.appendChild(tbody);
+
+                // Limpar o conteúdo atual da div e adicionar a tabela
+                tabelaClientes.innerHTML = '';
+                tabelaClientes.appendChild(table);
+                })
+                .catch(function(error) {
+                alert(error.message);
+                });
+            }
+
+            // Chamar a função para exibir os clientes ao carregar a página
+            exibirClientes();
+            </script>
+
     </div>
 
     <div class="content"></div>
