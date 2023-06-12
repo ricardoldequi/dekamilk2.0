@@ -35,7 +35,11 @@ document.querySelector('.fechaMenu').addEventListener('click', () => {
 const form = document.querySelector('form');
 
 // Manipulador de envio do formulário
-form.addEventListener('submit', function(event) {
+// Adicione um ID ao botão "Incluir" para identificá-lo
+const btIncluir = document.getElementById('btIncluir');
+
+// Adicione o evento de clique ao botão "Incluir"
+btIncluir.addEventListener('click', function(event) {
   event.preventDefault(); // Impedir o envio do formulário
 
   // Obter os valores dos campos do formulário
@@ -76,8 +80,8 @@ form.addEventListener('submit', function(event) {
   })
   .then(function(response) {
     if (response.ok) {
-      alert('Fornecedor incluído com sucesso!');
-      // Limpa os campos de entrada após o sucesso
+      alert('Cliente incluído com sucesso!');
+      // Limpar os campos de entrada após o sucesso
       document.getElementById('nomeCliente').value = '';
       document.getElementById('CPFCliente').value = '';
       document.getElementById('IECliente').value = '';
@@ -95,4 +99,69 @@ form.addEventListener('submit', function(event) {
   .catch(function(error) {
     alert(error.message);
   });
+});
+
+const btDeletar = document.getElementById('btDeletar');
+btDeletar.addEventListener('click', function(event) {
+  event.preventDefault(); // Impedir o envio do formulário
+
+  // Obter os valores dos campos do formulário
+  const nomeCliente = document.getElementById('nomeCliente').value;
+  const cpfCliente = document.getElementById('CPFCliente').value;
+  const ieCliente = document.getElementById('IECliente').value;
+  const enderecoCliente = document.getElementById('EnderecoCliente').value;
+  const cidadeCliente = document.getElementById('CidadeCliente').value;
+  const ufCliente = document.getElementById('UFCliente').value;
+  const cepCliente = document.getElementById('CEPCliente').value;
+  const telefoneCliente = document.getElementById('TelefoneCliente').value;
+  const telefoneFCliente = document.getElementById('TelefoneFCliente').value;
+  const emailCliente = document.getElementById('EmailCliente').value;
+
+  // Criar um objeto com os dados do cliente
+  const cliente = {
+    nome: nomeCliente,
+    cpf: cpfCliente,
+    cnpj: null,
+    ie: ieCliente,
+    endereco: enderecoCliente,
+    cidade: cidadeCliente,
+    uf: ufCliente,
+    cep: cepCliente,
+    bairro: 'tres vendas',
+    telefone: telefoneCliente,
+    telefone_fixo: telefoneFCliente,
+    email: emailCliente
+  };
+
+  // Enviar a solicitação de exclusão para o servidor usando fetch
+  fetch('http://localhost:8080/clientes', {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(cliente)
+  })
+  .then(function(response) {
+    if (response.ok) {
+      alert('Cliente excluído com sucesso!');
+      // Limpar os campos de entrada após a exclusão
+      document.getElementById('nomeCliente').value = '';
+      document.getElementById('CPFCliente').value = '';
+      document.getElementById('IECliente').value = '';
+      document.getElementById('EnderecoCliente').value = '';
+      document.getElementById('CidadeCliente').value = '';
+      document.getElementById('UFCliente').value = '';
+      document.getElementById('CEPCliente').value = '';
+      document.getElementById('TelefoneCliente').value = '';
+      document.getElementById('TelefoneFCliente').value = '';
+      document.getElementById('EmailCliente').value = '';
+      // Atualizar a exibição dos clientes
+      exibirClientes();
+    } else {
+      throw new Error('Erro ao excluir cliente. Por favor, tente novamente.');
+    }
+  })
+    .catch(function(error) {
+      alert(error.message);
+    });
 });

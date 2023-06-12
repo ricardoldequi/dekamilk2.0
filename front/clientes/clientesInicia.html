@@ -80,7 +80,7 @@
     <!--TELA PADRÃO-->
     <!--cadastro de clientes-->
     <div class="boxInicia content">
-        <a href="/front/clientes/clientes.html" type="submit" name="btNovo" id="btNovo" value="+">+</a>
+        <a href="/front/clientes/clientes.html" type="submit" name="btNovo" id="btNovo" value="+" onclick="limparCampos()">+</a>
 
         <div id="tabelaClientes">
             <table id="clientesTable">
@@ -94,6 +94,7 @@
                   <th>CEP</th>
                   <th>Telefone</th>
                   <th>Email</th>
+                  <th>Editar</th>
                 </tr>
               </thead>
               <tbody>
@@ -101,74 +102,129 @@
               </tbody>
             </table>
         </div>
-          
+    </div>
 
-        <script>
-            // Função para buscar e exibir os dados dos clientes
-            function exibirClientes() {
-                fetch('http://localhost:8080/clientes', {
+    <script>
+        // Função para buscar e exibir os dados dos clientes
+        function exibirClientes() {
+            fetch('http://localhost:8080/clientes', {
                 method: 'GET'
-                })
-                .then(function(response) {
+            })
+            .then(function(response) {
                 if (response.ok) {
                     return response.json();
                 } else {
                     throw new Error('Erro ao buscar os clientes do banco de dados.');
                 }
-                })
-                .then(function(clientes) {
+            })
+            .then(function(clientes) {
                 const tabelaClientes = document.getElementById('tabelaClientes');
-
+    
                 // Criar a tabela
                 const table = document.createElement('table');
                 table.classList.add('cliente-table');
-
+    
                 // Cabeçalho da tabela
                 const thead = document.createElement('thead');
                 const trHeader = document.createElement('tr');
-                const headers = ['Nome', 'CPF', 'Endereço', 'Cidade', 'UF', 'CEP', 'Telefone', 'Email'];
-
+                const headers = ['Nome', 'CPF', 'Endereço', 'Cidade', 'UF', 'CEP', 'Telefone', 'Email', 'Editar'];
+    
                 headers.forEach(function(header) {
                     const th = document.createElement('th');
                     th.textContent = header;
-                    trHeader.appendChild(th);
+                    trHeader.appendChild(th);3
                 });
-
+    
                 thead.appendChild(trHeader);
                 table.appendChild(thead);
-
+    
                 // Corpo da tabela
                 const tbody = document.createElement('tbody');
-
+    
                 clientes.forEach(function(cliente) {
                     const tr = document.createElement('tr');
                     const data = [cliente.nome, cliente.cpf, cliente.endereco, cliente.cidade, cliente.uf, cliente.cep, cliente.telefone, cliente.email];
-
+    
                     data.forEach(function(value) {
-                    const td = document.createElement('td');
-                    td.textContent = value;
-                    tr.appendChild(td);
+                        const td = document.createElement('td');
+                        td.textContent = value;
+                        tr.appendChild(td);
                     });
+    
+                    // Adicionar o botão de editar
+                    const tdEditar = document.createElement('td');
+                    const editarButton = document.createElement('button');
+                    editarButton.textContent = 'Editar';
+                    editarButton.classList.add('editar-button');
+                    editarButton.dataset.clienteId = cliente.id_cliente; // Substituir "id" por "id_cliente"
+                    tdEditar.appendChild(editarButton);
+                    tr.appendChild(tdEditar);
 
                     tbody.appendChild(tr);
                 });
-
+    
                 table.appendChild(tbody);
-
+    
                 // Limpar o conteúdo atual da div e adicionar a tabela
                 tabelaClientes.innerHTML = '';
                 tabelaClientes.appendChild(table);
-                })
-                .catch(function(error) {
-                alert(error.message);
+    
+                const editarButtons = document.getElementsByClassName('editar-button');
+                Array.from(editarButtons).forEach(function(button, index) {
+                    button.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        console.log('Botão de edição clicado. Índice:', index);
+                        console.log('Cliente:', clientes[index]);
+                        console.log('ID do cliente:', clientes[index].id_cliente); // Correção aqui
+                        const clienteId = button.dataset.clienteId;
+                        obterCliente(clientes[index].id_cliente);
+                    });
                 });
+
+            })
+            .catch(function(error) {
+                console.error('Erro ao buscar os clientes:', error);
+            });
+        }
+
+        // Função para obter os dados de um cliente pelo ID
+        function obterCliente(idCliente) {
+            if (idCliente) {
+                fetch(`http://localhost:8080/clientes/${idCliente}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Armazenar os dados do cliente na localStorage
+                    localStorage.setItem('clienteData', JSON.stringify(data));
+
+                    // Redirecionar para a página clientes.html
+                    window.location.href = '/front/clientes/clientes.html';
+                })
+                .catch(error => {
+                    console.log('Erro ao obter os dados do cliente:', error);
+                });
+            } else {
+                console.log('ID do cliente não especificado.');
             }
+        }
+    
+        // Chamar a função para exibir os clientes ao carregar a página
+        exibirClientes();
 
-            // Chamar a função para exibir os clientes ao carregar a página
-            exibirClientes();
-        </script>
-
-    </div>
+        function limparCampos() {
+            // Limpa os campos de entrada após o sucesso
+            document.getElementById('nomeCliente').value = '';
+            document.getElementById('CPFCliente').value = '';
+            document.getElementById('IECliente').value = '';
+            document.getElementById('EnderecoCliente').value = '';
+            document.getElementById('CidadeCliente').value = '';
+            document.getElementById('UFCliente').value = '';
+            document.getElementById('CEPCliente').value = '';
+            document.getElementById('TelefoneCliente').value = '';
+            document.getElementById('TelefoneFCliente').value = '';
+            document.getElementById('EmailCliente').value = '';
+        };
+        
+    </script>
 
     <div class="content"></div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

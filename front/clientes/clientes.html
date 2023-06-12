@@ -132,9 +132,52 @@
             <input type="submit" name="btIncluir" id="btIncluir" value="Incluir">
             <input type="submit" name="btDeletar" id="btDeletar" value="Deletar">
             <input type="submit" name="btAlterar" id="btAlterar" value="Alterar">
+            <button name="trash"><ion-icon name="trash-outline" onclick="limparCampos()"></ion-icon></button> 
             <a href="/front/clientes/clientesInicia.html" type="submit" name="btConsultar" id="btConsultar" value="Consultar">Consultar</a>
         </form>
     </div>
+
+    <script>
+        // Função para preencher os campos do formulário com os dados do cliente
+        function preencherCamposCliente() {
+            // Obter os dados do cliente armazenados na localStorage
+            const clienteData = localStorage.getItem('clienteData');
+
+            if (clienteData) {
+                const data = JSON.parse(clienteData);
+
+                // Preencher os campos do formulário com os dados do cliente
+                document.getElementById('nomeCliente').value = data.nome;
+                document.getElementById('CPFCliente').value = data.cpf;
+                document.getElementById('EnderecoCliente').value = data.endereco;
+                document.getElementById('CidadeCliente').value = data.cidade;
+                document.getElementById('UFCliente').value = data.uf;
+                document.getElementById('CEPCliente').value = data.cep;
+                document.getElementById('TelefoneCliente').value = data.telefone;
+                document.getElementById('EmailCliente').value = data.email;
+            } else {
+                console.log('Dados do cliente não encontrados na localStorage.');
+            }
+        }
+
+        // Chamar a função para preencher os campos ao carregar a página
+        preencherCamposCliente();
+
+        function limparCampos() {
+            // Limpa os campos de entrada
+            document.getElementById('nomeCliente').value = '';
+            document.getElementById('CPFCliente').value = '';
+            document.getElementById('IECliente').value = '';
+            document.getElementById('EnderecoCliente').value = '';
+            document.getElementById('CidadeCliente').value = '';
+            document.getElementById('UFCliente').value = '';
+            document.getElementById('CEPCliente').value = '';
+            document.getElementById('TelefoneCliente').value = '';
+            document.getElementById('TelefoneFCliente').value = '';
+            document.getElementById('EmailCliente').value = '';
+        };
+
+    </script>
 
     <div class="content"></div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
