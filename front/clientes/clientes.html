@@ -90,6 +90,16 @@
             <div class="inputBox">
                 <input type="text" autocomplete="off" name="CPFCliente" id="CPFCliente" class="inputCliente" required>
                 <label for="CPFCliente" class="labelInput">CPF</label>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+                <script>
+                    const cleaveCPF = new Cleave('#CPFCliente', {
+                        delimiters: ['.', '.', '-'],
+                        blocks: [3, 3, 3, 2],
+                        uppercase: true
+                    });
+                </script>
+
                 <a>
                     <input type="text" autocomplete="off" name="IECliente" id="IECliente" class="inputCliente" required>
                     <label for="IECliente" name="labelIE" id="labelIE" class="labelInput">Inscrição Estadual</label>
@@ -107,10 +117,36 @@
                 <a>
                     <input type="text" autocomplete="off" name="UFCliente" id="UFCliente" class="inputCliente" required>
                     <label for="UFCliente" name="labelUF" id="labelUF" class="labelInput">UF</label>
+
+                    <script>
+                        const ufClienteInput = document.getElementById('UFCliente');
+
+                        ufClienteInput.addEventListener('input', function(event) {
+                            let ufValue = event.target.value;
+
+                            if (ufValue.length > 2) {
+                                ufValue = ufValue.slice(0, 2);
+                            }
+
+                            event.target.value = ufValue.toUpperCase();
+                        });
+                    </script>
+
                 </a>
                 <a>
-                    <input type="text" autocomplete="off" name="CEPCliente" id="CEPCliente" class="inputCliente" required>
+                    <input type="text" autocomplete="off" name="CEPCliente" id="CEPCliente" class="inputCliente" required maxlength="9" oninput="formatarCEP(this)">
                     <label for="CEPCliente" name="labelCEP" id="labelCEP" class="labelInput">CEP</label>
+
+                    <script>
+                    function formatarCEP(input) {
+                        var cep = input.value.replace(/\D/g, '');
+                        if (cep.length > 5) {
+                        cep = cep.substring(0, 5) + '-' + cep.substring(5);
+                        }
+                        input.value = cep;
+                    }
+                    </script>
+
                 </a>
             </div>
             <br><br>
@@ -119,10 +155,23 @@
             <div class="inputBox">
                 <input type="tel" autocomplete="off" name="TelefoneCliente" id="TelefoneCliente" class="inputCliente" required>
                 <label for="TelefoneCliente" class="labelInput">Telefone Celular</label>
+
                 <a>
-                    <input type="text" autocomplete="off" name="TelefoneFCliente" id="TelefoneFCliente" class="inputCliente" required>
-                    <label for="TelefoneFCliente" name="labelTelefoneF" id="labelTelefoneF" class="labelInput">Telefone Fixo</label>
+                <input type="tel" autocomplete="off" name="TelefoneFCliente" id="TelefoneFCliente" class="inputCliente" required>
+                <label for="TelefoneFCliente" name="labelTelefoneF" id="labelTelefoneF" class="labelInput">Telefone Fixo</label>
                 </a>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+
+                <script>
+                // Aplica a máscara para Telefone Celular
+                $('#TelefoneCliente').inputmask('(99) 99999-9999');
+
+                // Aplica a máscara para Telefone Fixo
+                $('#TelefoneFCliente').inputmask('(99) 9999-9999');
+                </script>
+
                 <a>
                     <input type="text" autocomplete="off" name="EmailCliente" id="EmailCliente" class="inputCliente" required>
                     <label for="EmailCliente" name="labelEmail" id="labelEmail" class="labelInput">Email</label>
@@ -132,12 +181,297 @@
             <input type="submit" name="btIncluir" id="btIncluir" value="Incluir">
             <input type="submit" name="btDeletar" id="btDeletar" value="Deletar">
             <input type="submit" name="btAlterar" id="btAlterar" value="Alterar">
-            <button name="trash"><ion-icon name="trash-outline" onclick="limparCampos()"></ion-icon></button> 
+            <button name="trash" id="trash"><ion-icon name="trash-outline" onclick="limparCampos()"></ion-icon></button> 
             <a href="/front/clientes/clientesInicia.html" type="submit" name="btConsultar" id="btConsultar" value="Consultar">Consultar</a>
+        
+            <script>
+                var inputs = document.querySelectorAll("input");
+              
+                inputs.forEach(function(input) {
+                  input.addEventListener("keydown", function(event) {
+                    if (event.keyCode === 13) {
+                      event.preventDefault();
+                    }
+                  });
+                });
+            </script>
+
         </form>
     </div>
 
     <script>
+        // Cadastro de Clientes
+        // Selecionar o formulário
+        const form = document.querySelector('form');
+
+        // Manipulador de envio do formulário
+        // Adicione um ID ao botão "Incluir" para identificá-lo
+        const btIncluir = document.getElementById('btIncluir');
+
+        // Adicione o evento de clique ao botão "Incluir"
+        btIncluir.addEventListener('click', function(event) {
+            event.preventDefault(); // Impedir o envio do formulário
+
+            // Obter os valores dos campos do formulário
+            const nomeCliente = document.getElementById('nomeCliente').value;
+            const cpfCliente = document.getElementById('CPFCliente').value;
+            const ieCliente = document.getElementById('IECliente').value;
+            const enderecoCliente = document.getElementById('EnderecoCliente').value;
+            const cidadeCliente = document.getElementById('CidadeCliente').value;
+            const ufCliente = document.getElementById('UFCliente').value;
+            const cepCliente = document.getElementById('CEPCliente').value;
+            const telefoneCliente = document.getElementById('TelefoneCliente').value;
+            const telefoneFCliente = document.getElementById('TelefoneFCliente').value;
+            const emailCliente = document.getElementById('EmailCliente').value;
+
+            // Criar um objeto com os dados do cliente
+            const cliente = {
+                nome: nomeCliente,
+                cpf: cpfCliente,
+                cnpj: null,
+                ie: ieCliente,
+                endereco: enderecoCliente,
+                cidade: cidadeCliente,
+                uf: ufCliente,
+                cep: cepCliente,
+                bairro: 'tres vendas',
+                telefone: telefoneCliente,
+                telefone_fixo: telefoneFCliente,
+                email: emailCliente
+            };
+
+            // Enviar os dados do cliente para o servidor usando fetch
+            fetch('http://localhost:8080/clientes', {
+                method: 'POST', // Ou 'PUT', 'GET', 'DELETE', dependendo da sua necessidade
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(cliente)
+            })
+            .then(function(response) {
+                if (response.ok) {
+                alert('Cliente incluído com sucesso!');
+                // Limpar os campos de entrada após o sucesso
+                document.getElementById('nomeCliente').value = '';
+                document.getElementById('CPFCliente').value = '';
+                document.getElementById('IECliente').value = '';
+                document.getElementById('EnderecoCliente').value = '';
+                document.getElementById('CidadeCliente').value = '';
+                document.getElementById('UFCliente').value = '';
+                document.getElementById('CEPCliente').value = '';
+                document.getElementById('TelefoneCliente').value = '';
+                document.getElementById('TelefoneFCliente').value = '';
+                document.getElementById('EmailCliente').value = '';
+                } else {
+                throw new Error('Erro ao incluir cliente. Por favor, tente novamente.');
+                }
+            })
+            .catch(function(error) {
+                alert(error.message);
+            });
+        });
+
+
+        const btDeletar = document.getElementById('btDeletar');
+
+        btDeletar.addEventListener('click', function(event) {
+        event.preventDefault(); // Impedir o envio do formulário
+
+        // Obter os valores dos campos de identificação do cliente
+        const nomeCliente = document.getElementById('nomeCliente').value;
+        const cpfCliente = document.getElementById('CPFCliente').value;
+        const ieCliente = document.getElementById('IECliente').value;
+        const enderecoCliente = document.getElementById('EnderecoCliente').value;
+        const cidadeCliente = document.getElementById('CidadeCliente').value;
+        const ufCliente = document.getElementById('UFCliente').value;
+        const cepCliente = document.getElementById('CEPCliente').value;
+        const telefoneCliente = document.getElementById('TelefoneCliente').value;
+        const telefoneFCliente = document.getElementById('TelefoneFCliente').value;
+        const emailCliente = document.getElementById('EmailCliente').value;
+
+        // Fazer a solicitação GET para obter a lista de clientes
+        fetch('http://localhost:8080/clientes', {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json'
+            }
+        })
+            .then(function(response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Erro ao obter a lista de clientes. Por favor, tente novamente.');
+            }
+            })
+            .then(function(data) {
+            // Procurar o cliente com base nos critérios de busca (nome e CPF)
+            const clienteEncontrado = data.find(function(cliente) {
+                return cliente.nome === nomeCliente && cliente.cpf === cpfCliente;
+            });
+
+            if (clienteEncontrado) {
+                // Obter o ID do cliente encontrado
+                const idCliente = clienteEncontrado.id_cliente;
+
+                // Criar um objeto com os dados do cliente para enviar na solicitação de exclusão
+                const clienteParaExcluir = {
+                    id_cliente: idCliente,
+                    nome: nomeCliente,
+                    cpf: clienteEncontrado.cpf, // Correção aqui
+                    cnpj: null,
+                    ie: ieCliente,
+                    endereco: enderecoCliente,
+                    cidade: cidadeCliente,
+                    uf: ufCliente,
+                    cep: cepCliente,
+                    bairro: 'tres vendas',
+                    telefone: telefoneCliente,
+                    telefone_fixo: telefoneFCliente,
+                    email: emailCliente
+                };
+
+                // Enviar a solicitação de exclusão para a API usando o ID do cliente
+                if (confirm('Tem certeza de que deseja excluir o cliente?')) {
+                    fetch('http://localhost:8080/clientes', {
+                        method: 'DELETE',
+                        headers: {
+                        'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(clienteParaExcluir)
+                    })
+                        .then(function(response) {
+                            if (response.ok) {
+                                alert('Cliente excluído com sucesso!');
+                                // Limpar os campos de entrada após a exclusão
+                                document.getElementById('nomeCliente').value = '';
+                                document.getElementById('CPFCliente').value = '';
+                                document.getElementById('IECliente').value = '';
+                                document.getElementById('EnderecoCliente').value = '';
+                                document.getElementById('CidadeCliente').value = '';
+                                document.getElementById('UFCliente').value = '';
+                                document.getElementById('CEPCliente').value = '';
+                                document.getElementById('TelefoneCliente').value = '';
+                                document.getElementById('TelefoneFCliente').value = '';
+                                document.getElementById('EmailCliente').value = '';
+                            } else {
+                            throw new Error('Erro ao excluir cliente. Por favor, tente novamente.');
+                            }
+                        })
+                        .catch(function(error) {
+                            alert(error.message);
+                        });
+                } else {
+                    throw new Error('Cliente não encontrado. Verifique os critérios de busca.');
+                }
+            }
+            })
+            .catch(function(error) {
+            alert(error.message);
+            });
+        });
+
+
+        const btAlterar = document.getElementById('btAlterar');
+
+        btAlterar.addEventListener('click', function(event) {
+            event.preventDefault(); // Impedir o envio do formulário
+
+            // Obter os valores dos campos de identificação do cliente
+            const nomeCliente = document.getElementById('nomeCliente').value;
+            const cpfCliente = document.getElementById('CPFCliente').value;
+            const ieCliente = document.getElementById('IECliente').value;
+            const enderecoCliente = document.getElementById('EnderecoCliente').value;
+            const cidadeCliente = document.getElementById('CidadeCliente').value;
+            const ufCliente = document.getElementById('UFCliente').value;
+            const cepCliente = document.getElementById('CEPCliente').value;
+            const telefoneCliente = document.getElementById('TelefoneCliente').value;
+            const telefoneFCliente = document.getElementById('TelefoneFCliente').value;
+            const emailCliente = document.getElementById('EmailCliente').value;
+
+            // Fazer a solicitação GET para obter a lista de clientes
+            fetch('http://localhost:8080/clientes', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(function(response) {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Erro ao obter a lista de clientes. Por favor, tente novamente.');
+                }
+            })
+            .then(function(data) {
+                // Procurar o cliente com base nos critérios de busca (nome e CPF)
+                const clienteEncontrado = data.find(function(cliente) {
+                    return cliente.nome === nomeCliente && cliente.cpf === cpfCliente;
+                });
+
+                if (clienteEncontrado) {
+                    // Obter o ID do cliente encontrado
+                    const idCliente = clienteEncontrado.id_cliente;
+
+                    // Criar um objeto com os novos dados do cliente para enviar na solicitação de atualização
+                    const clienteAtualizado = {
+                        id_cliente: idCliente,
+                        nome: nomeCliente,
+                        cpf: cpfCliente,
+                        cnpj: null,
+                        ie: ieCliente,
+                        endereco: enderecoCliente,
+                        cidade: cidadeCliente,
+                        uf: ufCliente,
+                        cep: cepCliente,
+                        bairro: 'tres vendas',
+                        telefone: telefoneCliente,
+                        telefone_fixo: telefoneFCliente,
+                        email: emailCliente
+                    };
+
+                    // Enviar a solicitação de atualização para a API usando o ID do cliente
+                    fetch(`http://localhost:8080/clientes/${idCliente}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(clienteAtualizado)
+                    })
+
+                    .then(function(response) {
+                        if (response.ok) {
+                            alert('Cliente atualizado com sucesso!');
+                            // Limpar os campos de entrada após a atualização
+                            document.getElementById('nomeCliente').value = '';
+                            document.getElementById('CPFCliente').value = '';
+                            document.getElementById('IECliente').value = '';
+                            document.getElementById('EnderecoCliente').value = '';
+                            document.getElementById('CidadeCliente').value = '';
+                            document.getElementById('UFCliente').value = '';
+                            document.getElementById('CEPCliente').value = '';
+                            document.getElementById('TelefoneCliente').value = '';
+                            document.getElementById('TelefoneFCliente').value = '';
+                            document.getElementById('EmailCliente').value = '';
+                        } else {
+                            throw new Error('Erro ao atualizar cliente. Por favor, tente novamente.');
+                        }
+                    })
+                    .catch(function(error) {
+                        alert(error.message);
+                    });
+                } else {
+                    throw new Error('Cliente não encontrado. Verifique os critérios de busca.');
+                }
+            })
+            .catch(function(error) {
+                alert(error.message);
+            });
+        });
+
+
+
+
+
         // Função para preencher os campos do formulário com os dados do cliente
         function preencherCamposCliente() {
             // Obter os dados do cliente armazenados na localStorage
@@ -149,11 +483,13 @@
                 // Preencher os campos do formulário com os dados do cliente
                 document.getElementById('nomeCliente').value = data.nome;
                 document.getElementById('CPFCliente').value = data.cpf;
+                document.getElementById('IECliente').value = data.ieCliente;
                 document.getElementById('EnderecoCliente').value = data.endereco;
                 document.getElementById('CidadeCliente').value = data.cidade;
                 document.getElementById('UFCliente').value = data.uf;
                 document.getElementById('CEPCliente').value = data.cep;
                 document.getElementById('TelefoneCliente').value = data.telefone;
+                document.getElementById('TelefoneFCliente').value = data.telefone_fixo;
                 document.getElementById('EmailCliente').value = data.email;
             } else {
                 console.log('Dados do cliente não encontrados na localStorage.');
@@ -180,6 +516,8 @@
     </script>
 
     <div class="content"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src ="mainCliente.js"></script>

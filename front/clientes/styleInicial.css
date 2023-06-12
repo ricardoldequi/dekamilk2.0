@@ -247,11 +247,11 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
 .boxInicia{
     position:absolute;
     top: 10%;
-    left: 17%;
+    left: 15%;
     background-color: transparent;
     /* padding: 15px;  */
-    /* height: 70%; */
-    /* width: 70%; */
+    height: 70%;
+    width: 82%;
     transition: 0.5s;
 }
 
@@ -280,6 +280,7 @@ label #btSidebar:hover { /*cor quando coloca mouse em cima*/
 table {
     border-collapse: collapse;
     width: 93%;
+
 }
 
 /* Estilo para as células da tabela */
@@ -303,41 +304,64 @@ th {
     background-color: #ebe8e8;
     width: 100%;
     margin-top: 20px;
-  }
+}
   
-  #clientesTable {
+#clientesTable {
     border-collapse: collapse;
-  }
+}
   
   /* Estilos do cabeçalho da tabela */
-  #clientesTable thead {
+#clientesTable thead {
     background-color: #4173AB;
-    width: 100%;
-  }
+    width: 90%;
+}
   
-  #clientesTable th {
+#clientesTable th {
     padding: 100px;
     text-align: left;
-  }
+}
   
   /* Estilos das células da tabela */
-  #clientesTable td {
+#clientesTable td {
     padding: 100px;
     border-bottom: 1px solid #4173AB;
-  }
+}
   
   /* Estilos para realçar a primeira coluna (ID) */
-  #clientesTable td:first-child {
+#clientesTable td:first-child {
     font-weight: bold;
     background-color: #4173AB;
-  }
+}
   
   /* Estilos para alternar as cores das linhas */
-  #clientesTable tbody tr:nth-child(even) {
+#clientesTable tbody tr:nth-child(even) {
     background-color: #f9f9f9;
-  }
+}
   
-  #clientesTable tbody tr:hover {
+#clientesTable tbody tr:hover {
     background-color: #e9e9e9;
-  }
-  
+}
+
+
+.editar-icon {
+    /* Estilos personalizados aqui */
+    color: #4173AB; /* Define a cor do ícone */
+    font-size: 20px; /* Define o tamanho do ícone */
+    /* Adicione outros estilos conforme necessário */
+}
+
+.editar-icon:hover{
+    background-color: #4173ab83;
+    color: #fff;
+}
+
+#filtroNome {
+    background-color: #C4CDD9;
+    border: none;
+    border-radius: 5px;
+    height: 45px;
+    width: 200px;
+    font-size: 19px;
+    outline: none;
+    letter-spacing: 2px;
+}

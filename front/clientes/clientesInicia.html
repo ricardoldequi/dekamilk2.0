@@ -81,6 +81,7 @@
     <!--cadastro de clientes-->
     <div class="boxInicia content">
         <a href="/front/clientes/clientes.html" type="submit" name="btNovo" id="btNovo" value="+" onclick="limparCampos()">+</a>
+        <input type="text" id="filtroNome" placeholder="Filtrar por nome" />
 
         <div id="tabelaClientes">
             <table id="clientesTable">
@@ -119,7 +120,10 @@
             })
             .then(function(clientes) {
                 const tabelaClientes = document.getElementById('tabelaClientes');
-    
+                const filtroNome = document.getElementById('filtroNome');
+                
+                tabelaClientes.innerHTML = '<tr><td colspan="9">Nenhum cliente encontrado</td></tr>';
+
                 // Criar a tabela
                 const table = document.createElement('table');
                 table.classList.add('cliente-table');
@@ -132,7 +136,7 @@
                 headers.forEach(function(header) {
                     const th = document.createElement('th');
                     th.textContent = header;
-                    trHeader.appendChild(th);3
+                    trHeader.appendChild(th);
                 });
     
                 thead.appendChild(trHeader);
@@ -144,21 +148,23 @@
                 clientes.forEach(function(cliente) {
                     const tr = document.createElement('tr');
                     const data = [cliente.nome, cliente.cpf, cliente.endereco, cliente.cidade, cliente.uf, cliente.cep, cliente.telefone, cliente.email];
-    
-                    data.forEach(function(value) {
+                    
+                    data.forEach(function(value, index) {
                         const td = document.createElement('td');
                         td.textContent = value;
                         tr.appendChild(td);
+                        
+                        // Verificar se é a coluna de "Editar"
+                        if (index === data.length - 1) {
+                            const tdEditar = document.createElement('td');
+                            const editarIcon = document.createElement('ion-icon');
+                            editarIcon.name = 'create-outline';
+                            editarIcon.classList.add('editar-icon');
+                            editarIcon.dataset.clienteId = cliente.id_cliente;
+                            tdEditar.appendChild(editarIcon);
+                            tr.appendChild(tdEditar);
+                        }
                     });
-    
-                    // Adicionar o botão de editar
-                    const tdEditar = document.createElement('td');
-                    const editarButton = document.createElement('button');
-                    editarButton.textContent = 'Editar';
-                    editarButton.classList.add('editar-button');
-                    editarButton.dataset.clienteId = cliente.id_cliente; // Substituir "id" por "id_cliente"
-                    tdEditar.appendChild(editarButton);
-                    tr.appendChild(tdEditar);
 
                     tbody.appendChild(tr);
                 });
@@ -169,18 +175,34 @@
                 tabelaClientes.innerHTML = '';
                 tabelaClientes.appendChild(table);
     
-                const editarButtons = document.getElementsByClassName('editar-button');
-                Array.from(editarButtons).forEach(function(button, index) {
-                    button.addEventListener('click', function(event) {
+                const editarIcons = document.getElementsByClassName('editar-icon');
+                Array.from(editarIcons).forEach(function(icon) {
+                    icon.addEventListener('click', function(event) {
                         event.preventDefault();
-                        console.log('Botão de edição clicado. Índice:', index);
-                        console.log('Cliente:', clientes[index]);
-                        console.log('ID do cliente:', clientes[index].id_cliente); // Correção aqui
-                        const clienteId = button.dataset.clienteId;
-                        obterCliente(clientes[index].id_cliente);
+                        const clienteId = icon.dataset.clienteId;
+                        obterCliente(clienteId);
                     });
                 });
-
+                // Filtro de nome
+                filtroNome.addEventListener('input', function() {
+                    const valorFiltro = filtroNome.value.toLowerCase();
+                    const linhasTabela = tabelaClientes.getElementsByTagName('tr');
+    
+                    for (let i = 0; i < linhasTabela.length; i++) {
+                        const colunaNome = linhasTabela[i].getElementsByTagName('td')[0];
+    
+                        if (colunaNome) {
+                            const nome = colunaNome.textContent || colunaNome.innerText;
+    
+                            if (nome.toLowerCase().indexOf(valorFiltro) > -1) {
+                                linhasTabela[i].style.display = '';
+                            } else {
+                                linhasTabela[i].style.display = 'none';
+                            }
+                        }
+                    }
+                });
+    
             })
             .catch(function(error) {
                 console.error('Erro ao buscar os clientes:', error);
@@ -193,10 +215,7 @@
                 fetch(`http://localhost:8080/clientes/${idCliente}`)
                 .then(response => response.json())
                 .then(data => {
-                    // Armazenar os dados do cliente na localStorage
                     localStorage.setItem('clienteData', JSON.stringify(data));
-
-                    // Redirecionar para a página clientes.html
                     window.location.href = '/front/clientes/clientes.html';
                 })
                 .catch(error => {
@@ -207,11 +226,9 @@
             }
         }
     
-        // Chamar a função para exibir os clientes ao carregar a página
         exibirClientes();
 
         function limparCampos() {
-            // Limpa os campos de entrada após o sucesso
             document.getElementById('nomeCliente').value = '';
             document.getElementById('CPFCliente').value = '';
             document.getElementById('IECliente').value = '';
@@ -228,7 +245,6 @@
 
     <div class="content"></div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src ="mainCliente.js"></script>
+    <script src="mainCliente.js"></script>
 </body>
 </html>

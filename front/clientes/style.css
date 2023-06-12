@@ -360,16 +360,16 @@ p1 {
 }
 
 #TelefoneCliente {
-    width: 190px;
+    width: 205px;
     height: 45px;
     left: 94px;
 }
 
 #TelefoneFCliente {
-    width: 160px;
+    width: 185px;
     height: 45px;
     left: 94px;
-    transform: translate(50px, 0px);
+    transform: translate(35px, 0px);
 }
 
 #labelTelefoneF{
@@ -377,10 +377,10 @@ p1 {
 }
 
 #EmailCliente {
-    width: 340px;
+    width: 335px;
     height: 45px;
     left: 452px;
-    transform: translate(100px, 0px);
+    transform: translate(65px, 0px);
 }
 
 #labelEmail {
@@ -433,6 +433,17 @@ p1 {
 
 #btAlterar:hover{
     background: #3d638f;
+}
+
+#trash{
+    border: none; /* Remover a borda */
+    background-color: transparent; /* Remover o fundo */
+    font-size: 30px; /* Definir o tamanho da fonte */
+    width: 40px; /* Definir a largura */
+    height: 40px; /* Definir a altura */
+    cursor: pointer;
+    text-decoration: none;
+    transform: translate(280px, 10px);
 }
 
 #btConsultar {
